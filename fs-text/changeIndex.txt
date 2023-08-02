@@ -1,0 +1,4 @@
+Copied from file.txt: Write full new Data in the file
+
+
+ Append some new Data
