@@ -11,7 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "date-fns": "^2.30.0",
     "nodemon": "^3.0.1",
-    "upper-case": "^2.0.2"
+    "upper-case": "^2.0.2",
+    "uuid": "^9.0.0"
   }
 }

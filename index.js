@@ -4,15 +4,17 @@ const fs = require("fs");
 const path = require("path");
 const calc = require("./export-module/calculation");
 const fsPromises = require("fs").promises;
+const { customLogEvent } = require("./node-events/logEvents");
+const EventEmitter = require("events");
 
 //CReate basic http server
-http
-  .createServer((req, res) => {
-    res.writeHead(200, { "Content-Type": "text/html" });
-    res.write(uc.upperCase("Hello World!"));
-    res.end();
-  })
-  .listen(8080);
+// http
+//   .createServer((req, res) => {
+//     res.writeHead(200, { "Content-Type": "text/html" });
+//     res.write(uc.upperCase("Hello World!"));
+//     res.end();
+//   })
+//   .listen(8080);
 
 //FS module
 
@@ -97,39 +99,39 @@ http
 // );
 
 // fs promisses we can control the flow of the operations and code will look more clear in promises
-const fsOperations = async () => {
-  try {
-    const data = await fsPromises.readFile(
-      path.join(__dirname, "fs-text", "file.txt"),
-      "utf-8"
-    );
-    await fsPromises.writeFile(
-      path.join(__dirname, "fs-text", "index.txt"),
-      `Copied from file.txt: ${data}`
-    );
-    await fsPromises.appendFile(
-      path.join(__dirname, "fs-text", "index.txt"),
-      "\n Append some new Data"
-    );
-    await fsPromises.rename(
-      path.join(__dirname, "fs-text", "index.txt"),
-      path.join(__dirname, "fs-text", "changeIndex.txt")
-    );
-    const newData = await fsPromises.readFile(
-      path.join(__dirname, "fs-text", "changeIndex.txt"),
-      "utf-8"
-    );
-    console.log("newData", newData);
-    //Delete the file in fs module
-    await fsPromises.unlink(
-      path.join(__dirname, "fs-text", "inside", "index.txt")
-    );
-  } catch (error) {
-    if (error) throw error;
-  }
-};
+// const fsOperations = async () => {
+//   try {
+//     const data = await fsPromises.readFile(
+//       path.join(__dirname, "fs-text", "file.txt"),
+//       "utf-8"
+//     );
+//     await fsPromises.writeFile(
+//       path.join(__dirname, "fs-text", "index.txt"),
+//       `Copied from file.txt: ${data}`
+//     );
+//     await fsPromises.appendFile(
+//       path.join(__dirname, "fs-text", "index.txt"),
+//       "\n Append some new Data"
+//     );
+//     await fsPromises.rename(
+//       path.join(__dirname, "fs-text", "index.txt"),
+//       path.join(__dirname, "fs-text", "changeIndex.txt")
+//     );
+//     const newData = await fsPromises.readFile(
+//       path.join(__dirname, "fs-text", "changeIndex.txt"),
+//       "utf-8"
+//     );
+//     console.log("newData", newData);
+//     //Delete the file in fs module
+//     await fsPromises.unlink(
+//       path.join(__dirname, "fs-text", "inside", "index.txt")
+//     );
+//   } catch (error) {
+//     if (error) throw error;
+//   }
+// };
 
-fsOperations();
+// fsOperations();
 
 //Export module
 // const x = 10;
@@ -144,3 +146,18 @@ fsOperations();
 
 // const b = Buffer.alloc(5);
 // console.log(b.fill(22));
+
+//Custom LogEvent practical
+
+// class MyEmitter extends EventEmitter {}
+
+//Use instance of our class and initialize the object
+// const myEmitter = new MyEmitter();
+
+// //add event listener for the logs
+// myEmitter.on("log", (msg) => customLogEvent(msg));
+
+// setTimeout(() => {
+//   //emit the event
+//   myEmitter.emit("log", "this my first log");
+// }, 2000);
