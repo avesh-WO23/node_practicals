@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Message</h1>
+    <input type="text" value="" onchange="handleChange(e)" />
+    <button onclick="sendLog()">Add</button>
+    <script>
+      const handleChange = (e) => {
+        console.log("e", e);
+      };
+      const sendLog = async () => {
+        const data = await fetch("/", {
+          method: "POST",
+          body: handleChange(),
+        });
+      };
+    </script>
+  </body>
+</html>
