@@ -11,14 +11,18 @@ class MyEmitter extends EventEmitter {}
 
 const myEmitter = new MyEmitter();
 
-app.use(bodyParser.json({ limit: "30mb", extended: true }));
+// app.use(bodyParser.json({ limit: "30mb", extended: true }));
 // app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 // app.use(express.json());
 
 app.use(express.json());
 
+//for cors-origin error
 // app.use(cors());
+
+//Serve static file using express
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "index.htm"));
@@ -64,6 +68,7 @@ app.get("/message", [one, two, three]);
 
 app.post("/message", async (req, res) => {
   //for ON method we have to remove or off the previous event
+  console.log("req", req.body);
   myEmitter.once("log", (msg) => customLogEvent(msg));
   myEmitter.emit("log", req?.body?.userInput);
   res.send("success");
