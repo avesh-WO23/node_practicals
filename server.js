@@ -9,6 +9,7 @@ const { logger } = require("./middlewares/logEvents");
 const { errorEvents } = require("./middlewares/errorLogEvents");
 const { subRoutes } = require("./routes/subDir");
 const { homeRoutes } = require("./routes/root");
+const { employeesRoutes } = require("./routes/api/employees");
 
 class MyEmitter extends EventEmitter {}
 
@@ -61,6 +62,7 @@ app.use(express.static(path.join(__dirname, "public")));
 //Routes
 app.use(homeRoutes);
 app.use("/sub", subRoutes);
+app.use("/employees", employeesRoutes);
 
 // call route like middleware for Specific path
 
