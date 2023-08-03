@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const calc = require("./export-module/calculation");
 const fsPromises = require("fs").promises;
-const { customLogEvent } = require("./node-events/logEvents");
+const { customLogEvent } = require("./middlewares/logEvents");
 const EventEmitter = require("events");
 const { Products } = require("./products");
 

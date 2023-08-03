@@ -5,7 +5,8 @@ const path = require("path");
 const http = require("http");
 const bodyParser = require("body-parser");
 const { EventEmitter } = require("stream");
-const { customLogEvent } = require("./node-events/logEvents");
+const { logger } = require("./middlewares/logEvents");
+const { errorEvents } = require("./middlewares/errorLogEvents");
 
 class MyEmitter extends EventEmitter {}
 
@@ -16,9 +17,31 @@ const myEmitter = new MyEmitter();
 
 // app.use(express.json());
 
+//Custom Middleware
+app.use(logger);
+
 app.use(express.json());
 
 //for cors-origin error
+
+//We can also added cors enable options for allow only for specific domains
+
+const enabledDomains = ["https://www.google.com"];
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (enabledDomains.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed By origins CORS"));
+    }
+  },
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
+
+//For all Origins
 // app.use(cors());
 
 //Serve static file using express
@@ -68,16 +91,20 @@ app.get("/message", [one, two, three]);
 
 app.post("/message", async (req, res) => {
   //for ON method we have to remove or off the previous event
-  console.log("req", req.body);
-  myEmitter.once("log", (msg) => customLogEvent(msg));
-  myEmitter.emit("log", req?.body?.userInput);
+  // myEmitter.once("log", (msg) => customLogEvent(msg));
+  // myEmitter.emit("log", req?.body?.userInput);
   res.send("success");
 });
 
 //it will going to able to find the file so it will send 200 response but if you want send manually status or chang status then use res.status()
-app.get("/*", (req, res) => {
+
+//app.all Is actually use for all type of requests it could be any type of request
+
+app.all("*", (req, res) => {
   res.status(404).sendFile(path.join(__dirname, "views", "404.htm"));
 });
+
+app.use(errorEvents);
 
 app.listen(8000, () => {
   console.log("server is on");

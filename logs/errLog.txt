@@ -1,0 +1,2 @@
+20230803	16:20:40	64f794d5-c407-44be-8b7b-f3c6765f0be0	Error	Not allowed By origins CORS
+20230803	16:21:17	9d308089-199e-42ec-b71c-4a43a4999598	Error	Not allowed By origins CORS
