@@ -7,6 +7,8 @@ const bodyParser = require("body-parser");
 const { EventEmitter } = require("stream");
 const { logger } = require("./middlewares/logEvents");
 const { errorEvents } = require("./middlewares/errorLogEvents");
+const { subRoutes } = require("./routes/subDir");
+const { homeRoutes } = require("./routes/root");
 
 class MyEmitter extends EventEmitter {}
 
@@ -47,13 +49,18 @@ app.use(cors(corsOptions));
 //Serve static file using express
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "index.htm"));
-});
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname, "views", "index.htm"));
+// });
 
-app.get("/index", (req, res) => {
-  res.redirect("/");
-});
+//if any old routes written and want redirect on new or other routes
+// app.get("/index", (req, res) => {
+//   res.redirect("/");
+// });
+
+//Routes
+app.use(homeRoutes);
+app.use("/sub", subRoutes);
 
 //Routes chaining handling just like middle ware next argument, it will just goto the next function
 
@@ -74,32 +81,33 @@ app.get("/index", (req, res) => {
 
 //OR for chaining route handling
 
-const one = (req, res, next) => {
-  console.log("enter one");
-  next();
-};
+// const one = (req, res, next) => {
+//   console.log("enter one");
+//   next();
+// };
 
-const two = (req, res, next) => {
-  console.log("enter two");
-  next();
-};
-const three = (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "message.htm"));
-};
+// const two = (req, res, next) => {
+//   console.log("enter two");
+//   next();
+// };
+// const three = (req, res) => {
+//   res.sendFile(path.join(__dirname, "views", "message.htm"));
+// };
 
-app.get("/message", [one, two, three]);
+// app.get("/message", [one, two, three]);
 
-app.post("/message", async (req, res) => {
-  //for ON method we have to remove or off the previous event
-  // myEmitter.once("log", (msg) => customLogEvent(msg));
-  // myEmitter.emit("log", req?.body?.userInput);
-  res.send("success");
-});
+// app.post("/message", async (req, res) => {
+//   //for ON method we have to remove or off the previous event
+//   // myEmitter.once("log", (msg) => customLogEvent(msg));
+//   // myEmitter.emit("log", req?.body?.userInput);
+//   res.send("success");
+// });
 
 //it will going to able to find the file so it will send 200 response but if you want send manually status or chang status then use res.status()
 
 //app.all Is actually use for all type of requests it could be any type of request
 
+//404
 app.all("*", (req, res) => {
   res.status(404).sendFile(path.join(__dirname, "views", "404.htm"));
 });
