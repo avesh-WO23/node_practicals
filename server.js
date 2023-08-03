@@ -62,6 +62,24 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(homeRoutes);
 app.use("/sub", subRoutes);
 
+// call route like middleware for Specific path
+
+// app.get(
+//   "/check/:id",
+//   (req, res, next) => {
+//     console.log("id", req.params.id);
+//     if (req.params.id === "0") next("route");
+//     else next();
+//   },
+//   (req, res) => {
+//     res.send("simple");
+//   }
+// );
+
+// app.get("/check/:id", (req, res) => {
+//   res.send("special");
+// });
+
 //Routes chaining handling just like middle ware next argument, it will just goto the next function
 
 // app.get(
