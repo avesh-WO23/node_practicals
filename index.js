@@ -6,6 +6,7 @@ const calc = require("./export-module/calculation");
 const fsPromises = require("fs").promises;
 const { customLogEvent } = require("./node-events/logEvents");
 const EventEmitter = require("events");
+const { Products } = require("./products");
 
 //CReate basic http server
 // http
@@ -161,3 +162,28 @@ const EventEmitter = require("events");
 //   //emit the event
 //   myEmitter.emit("log", "this my first log");
 // }, 2000);
+
+//for product - 1
+const myProduct = new Products();
+myProduct.name = "watch";
+
+//Event emit listener it will call as per the number of emit will be called in class products.
+myProduct.on("add", (number) => {
+  console.log(`order received ${number}`);
+});
+
+myProduct.addProduct(2);
+myProduct.displayOrder();
+
+//for product - 2
+
+const shoes = new Products();
+shoes.name = "Air Jordan";
+
+//listener
+shoes.on("add", (number) => {
+  console.log(`order received! shoes order ${number} pair`);
+});
+
+shoes.addProduct(2);
+shoes.displayOrder();

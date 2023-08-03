@@ -1,8 +1,6 @@
 const path = require("path");
 
-const someFile = "./fs-text/inside/rename-reply.txt";
-
-console.log(path.dirname(someFile)); //directory
-console.log(path.basename(someFile));
-console.log(path.extname(someFile)); //file extension
-console.log(path.resolve("server.js"));
+console.log(path.dirname(path.resolve("path.js"))); //directory
+console.log(path.basename(path.resolve("path.js"))); //main child file name
+console.log(path.extname(path.resolve("path.js"))); //file extension
+console.log(path.resolve("server.js")); // to find path of any file
