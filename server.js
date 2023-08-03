@@ -3,8 +3,22 @@ const cors = require("cors");
 const app = express();
 const path = require("path");
 const http = require("http");
+const bodyParser = require("body-parser");
+const { EventEmitter } = require("stream");
+const { customLogEvent } = require("./node-events/logEvents");
 
-app.use(cors());
+class MyEmitter extends EventEmitter {}
+
+const myEmitter = new MyEmitter();
+
+app.use(bodyParser.json({ limit: "30mb", extended: true }));
+// app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
+
+// app.use(express.json());
+
+app.use(express.json());
+
+// app.use(cors());
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "index.htm"));
@@ -47,6 +61,13 @@ const three = (req, res) => {
 };
 
 app.get("/message", [one, two, three]);
+
+app.post("/message", async (req, res) => {
+  //for ON method we have to remove or off the previous event
+  myEmitter.once("log", (msg) => customLogEvent(msg));
+  myEmitter.emit("log", req?.body?.userInput);
+  res.send("success");
+});
 
 //it will going to able to find the file so it will send 200 response but if you want send manually status or chang status then use res.status()
 app.get("/*", (req, res) => {

@@ -7,17 +7,25 @@
   </head>
   <body>
     <h1>Message</h1>
-    <input type="text" value="" onchange="handleChange(e)" />
+    <form>
+      <input type="text" class="input" oninput="handleChange(this)" />
+    </form>
     <button onclick="sendLog()">Add</button>
     <script>
+      let userInput;
       const handleChange = (e) => {
-        console.log("e", e);
+        userInput = e.value;
       };
       const sendLog = async () => {
-        const data = await fetch("/", {
-          method: "POST",
-          body: handleChange(),
-        });
+        try {
+          await fetch("/message", {
+            method: "POST",
+            body: JSON.stringify({ userInput }),
+            headers: { "Content-Type": "application/json" },
+          });
+        } catch (error) {
+          console.log("err", error);
+        }
       };
     </script>
   </body>
