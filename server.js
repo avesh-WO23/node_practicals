@@ -5,7 +5,7 @@ const path = require("path");
 const http = require("http");
 const bodyParser = require("body-parser");
 const { EventEmitter } = require("stream");
-const { logger } = require("./middlewares/logEvents");
+const { logged } = require("./middlewares/logEvents");
 const { errorEvents } = require("./middlewares/errorLogEvents");
 const { subRoutes } = require("./routes/subDir");
 const { homeRoutes } = require("./routes/root");
@@ -21,7 +21,7 @@ const myEmitter = new MyEmitter();
 // app.use(express.json());
 
 //Custom Middleware
-app.use(logger);
+app.use(logged);
 
 app.use(express.json());
 
