@@ -129,7 +129,7 @@ app.use("/employees", employeesRoutes);
 
 //404
 app.all("*", (req, res) => {
-  res.status(404).sendFile(path.join(__dirname, "views", "404.htm"));
+  res.status(404).sendFile(path.join(_dirname, "views", "404.htm"));
 });
 
 app.use(errorEvents);

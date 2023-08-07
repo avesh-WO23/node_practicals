@@ -1,4 +1,6 @@
 
-{"level":"info","message":"20230807\t14:44:47\tc0ba3522-4df5-44a9-93d8-db9d6a6e4db3\tGET\tundefined\t/"}
-{"level":"info","message":"20230807\t14:46:53\t8cbf86e9-f2ba-40a0-b7e3-15578f7abfb4\tGET\tundefined\t/"}
-{"level":"info","message":"20230807\t14:47:19 825ff6c9-fa72-4a3d-8dc0-daf481b82f2c GET\tundefined\t/"}
+
+info: 08-07-2023 15:58:46: 	27d0dff7-4221-470d-8235-fe96bbb74bfd GET undefined /dskfhksjfks
+error: 08-07-2023 15:58:46: 	ReferenceError _dirname is not defined
+info: 08-07-2023 15:58:59: 	70ccea79-665b-4bd6-a7c8-30c6621cd75e GET undefined /dskfhksjfks
+error: 08-07-2023 15:58:59: 	ReferenceError _dirname is not defined

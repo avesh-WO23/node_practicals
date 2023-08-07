@@ -1,8 +1,7 @@
-const { logger } = require("../logger");
+const { logger } = require("../utils/logger");
 
 const errorEvents = (err, req, res, next) => {
-  // customLogEvent(`${err.name}\t${err.message}`, "error.log");
-  logger.log({ message: `${err.name}\t${err.message}`, level: "error" });
+  logger.error({ message: `${err.name} ${err.message}` });
   res.status(500).send(err.message);
 };
 
