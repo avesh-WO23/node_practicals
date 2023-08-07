@@ -1,2 +1,9 @@
 20230803	16:20:40	64f794d5-c407-44be-8b7b-f3c6765f0be0	Error	Not allowed By origins CORS
 20230803	16:21:17	9d308089-199e-42ec-b71c-4a43a4999598	Error	Not allowed By origins CORS
+20230807	11:48:19	8ba66295-35a4-4279-9f78-d34b238c7e4f	TypeError	Cannot read properties of undefined (reading 'id')
+20230807	11:49:34	419f0e6f-9bb1-4507-a133-4f97b495bd69	TypeError	Cannot read properties of undefined (reading 'id')
+20230807	11:49:46	08d4efb1-7fcf-4e10-bdaa-76757a312d02	TypeError	Cannot read properties of undefined (reading 'id')
+20230807	11:50:29	168cb8c2-ee57-4fb0-8aae-3f7b0bf9ce46	TypeError	Cannot read properties of undefined (reading 'id')
+20230807	11:51:00	da59ba66-2feb-4494-8c48-11bff18e2ef8	TypeError	Cannot read properties of undefined (reading 'id')
+20230807	11:52:48	eb761c0d-99db-41e5-8e3a-3d20e84fa6ff	TypeError	Cannot read properties of undefined (reading 'id')
+20230807	12:26:04	d04a30a3-c160-4256-b9e9-a116ec496f4f	SyntaxError	Unexpected token o in JSON at position 1
