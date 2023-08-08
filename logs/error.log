@@ -7,3 +7,4 @@ error: 08-07-2023 17:29:38: 	TypeError The "data" argument must be of type strin
 error: 08-07-2023 17:29:54: 	SyntaxError Unexpected token o in JSON at position 1
 error: 08-07-2023 18:27:47: 	ReferenceError empa is not defined
 error: 08-07-2023 19:10:54: 	SyntaxError Unexpected token o in JSON at position 1
+error: 08-08-2023 12:13:05: 	Error Cannot set headers after they are sent to the client

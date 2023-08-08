@@ -7,7 +7,30 @@ const { v4: uuid } = require("uuid");
 const emp = path.join(__dirname, "../models/emp.json");
 
 //all employees
-const getAllEmployees = (req, res) => {
+const getEmployees = (req, res) => {
+  const data = JSON.parse(fs.readFileSync(emp, { encoding: "utf-8" }));
+  if (req.params.id) {
+    const findIdx = data.findIndex((d) => d.id === req.params.id);
+    return findIdx > 0
+      ? res.status(201).send(data[findIdx])
+      : res.status(404).send("sorry user isn't found!");
+  } else if (Object.keys(req.query).length) {
+    const filteredData = data.filter((d) =>
+      Object.entries(req.query).every(([key, value]) =>
+        key && value ? d[key] === value : true
+      )
+    );
+    return filteredData.length
+      ? res.status(201).send(filteredData)
+      : data.every((d) => Object.keys(req.query).every((q) => q in d)) //in is like hasOwnProperty of object d.hasOwnProperty(q)
+      ? res.send(filteredData)
+      : res.send(
+          data.filter((d) =>
+            Object.entries(req.query).some(([key, value]) => d[key] === value)
+          )
+        );
+  }
+  //for all user
   fs.readFile(emp, "utf-8", (err, data) => {
     return err
       ? res.status(500).send("Internal Server Error!")
@@ -17,7 +40,6 @@ const getAllEmployees = (req, res) => {
 
 //Create employee
 const createNewEmployee = (req, res) => {
-  let empData = [];
   if (!req.body.firstName || !req.body.lastName) {
     return res.status(400).send("Please fill required fields!");
   } else {
@@ -25,9 +47,8 @@ const createNewEmployee = (req, res) => {
       ...req.body,
       id: uuid(),
     };
-    empData.push(newEmployee);
     if (!fs.existsSync(emp)) {
-      fs.writeFile(emp, JSON.stringify(empData), "utf-8", (err, data) => {
+      fs.writeFile(emp, JSON.stringify([newEmployee]), "utf-8", (err, data) => {
         return err
           ? res.status(500).send("Internal Server Error!")
           : res.status(201).send("Created!");
@@ -36,10 +57,14 @@ const createNewEmployee = (req, res) => {
       fs.readFile(emp, "utf-8", (err, data) => {
         if (err) return res.status(500).send("Internal Server Error!");
         else {
-          empData = [...JSON.parse(data), newEmployee];
-          fs.writeFile(emp, JSON.stringify(empData), "utf-8", (err, data) => {
-            return res.status(201).send("Created!");
-          });
+          fs.writeFile(
+            emp,
+            JSON.stringify([...JSON.parse(data), newEmployee]),
+            "utf-8",
+            (err, data) => {
+              return res.status(201).send("Created!");
+            }
+          );
         }
       });
     }
@@ -53,14 +78,13 @@ const updateEmployee = (req, res) => {
   } else {
     fs.readFile(emp, "utf-8", (err, data) => {
       const empData = [...JSON.parse(data)];
-      const findUser = empData.find((e) => e.id === req.body.id);
       const findIdx = empData.findIndex((e) => e.id === req.body.id);
-      if (!findUser) {
+      if (findIdx < 0) {
         return res.status(404).send("Sorry cannot find the user!");
       } else {
-        findUser.firstName = req.body.firstName;
-        findUser.lastName = req.body.lastName;
-        empData.splice(findIdx, 1, findUser);
+        empData[findIdx].firstName = req.body.firstName;
+        empData[findIdx].lastName = req.body.lastName;
+        empData.splice(findIdx, 1, empData[findIdx]);
         fs.writeFile(emp, JSON.stringify(empData), "utf-8", (err) => {
           return err
             ? res.status(500).send("Internal Server Error!")
@@ -92,26 +116,25 @@ const deleteEmployee = (req, res) => {
 };
 
 //get single employee
-const getEmployee = (req, res) => {
-  const empId = req.params.id;
-  if (!empId) {
-    return res.status(404).send("Invalid user!");
-  }
-  fs.readFile(emp, "utf-8", (err, data) => {
-    if (err) {
-      return res.status(500).send("Internal Server Error!");
-    }
-    const getEmp = JSON.parse(data).find((d) => d.id === empId);
-    return getEmp
-      ? res.status(201).send(getEmp)
-      : res.status(404).send("cannot find the user!");
-  });
-};
+// const getEmployee = (req, res) => {
+//   const empId = req.params.id;
+//   if (!empId) {
+//     return res.status(404).send("Invalid user!");
+//   }
+//   fs.readFile(emp, "utf-8", (err, data) => {
+//     if (err) {
+//       return res.status(500).send("Internal Server Error!");
+//     }
+//     const getEmp = JSON.parse(data).find((d) => d.id === empId);
+//     return getEmp
+//       ? res.status(201).send(getEmp)
+//       : res.status(404).send("cannot find the user!");
+//   });
+// };
 
 module.exports = {
-  getAllEmployees,
   createNewEmployee,
   updateEmployee,
   deleteEmployee,
-  getEmployee,
+  getEmployees,
 };
