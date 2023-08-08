@@ -10,6 +10,7 @@ const { errorEvents } = require("./middlewares/errorLogEvents");
 const { subRoutes } = require("./routes/subDir");
 const { homeRoutes } = require("./routes/root");
 const { employeesRoutes } = require("./routes/api/employees");
+const boolParser = require("express-query-boolean");
 
 class MyEmitter extends EventEmitter {}
 
@@ -24,6 +25,8 @@ const myEmitter = new MyEmitter();
 app.use(logged);
 
 app.use(express.json());
+
+app.use(boolParser());
 
 //for cors-origin error
 

@@ -6,9 +6,14 @@ const {
   deleteEmployee,
   createNewEmployee,
 } = require("../../controllers/empControllers");
+const { validationMiddleware } = require("../../middlewares/empValidation");
 
 //for all routes
-router.route("/").get(getEmployees).post(createNewEmployee).put(updateEmployee);
+router
+  .route("/")
+  .get(getEmployees)
+  .post([validationMiddleware, createNewEmployee])
+  .put([validationMiddleware, updateEmployee]);
 
 //For specific user
 router.route("/:id").get(getEmployees).delete(deleteEmployee);

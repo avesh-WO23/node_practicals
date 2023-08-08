@@ -8,3 +8,19 @@ error: 08-07-2023 17:29:54: 	SyntaxError Unexpected token o in JSON at position 
 error: 08-07-2023 18:27:47: 	ReferenceError empa is not defined
 error: 08-07-2023 19:10:54: 	SyntaxError Unexpected token o in JSON at position 1
 error: 08-08-2023 12:13:05: 	Error Cannot set headers after they are sent to the client
+error: 08-08-2023 16:44:42: 	TypeError Cannot read properties of undefined (reading 'message')
+error: 08-08-2023 16:45:02: 	TypeError Cannot read properties of undefined (reading 'message')
+error: 08-08-2023 17:16:53: 	SyntaxError Unexpected token } in JSON at position 197
+error: 08-08-2023 17:23:16: 	SyntaxError Unexpected token , in JSON at position 206
+error: 08-08-2023 17:23:42: 	SyntaxError Unexpected token , in JSON at position 206
+error: 08-08-2023 17:25:08: 	SyntaxError Unexpected token , in JSON at position 206
+error: 08-08-2023 17:25:44: 	SyntaxError Unexpected token , in JSON at position 206
+error: 08-08-2023 17:27:41: 	SyntaxError Unexpected token , in JSON at position 206
+error: 08-08-2023 18:15:48: 	TypeError Cannot read properties of undefined (reading 'split')
+error: 08-08-2023 18:17:31: 	TypeError Cannot read properties of undefined (reading 'split')
+error: 08-08-2023 18:17:33: 	TypeError Cannot read properties of undefined (reading 'split')
+error: 08-08-2023 18:17:35: 	TypeError Cannot read properties of undefined (reading 'split')
+error: 08-08-2023 18:17:36: 	TypeError Cannot read properties of undefined (reading 'split')
+error: 08-08-2023 18:17:42: 	TypeError Cannot read properties of undefined (reading 'split')
+error: 08-08-2023 18:17:51: 	TypeError Cannot read properties of undefined (reading 'split')
+error: 08-08-2023 18:31:40: 	TypeError Cannot read properties of undefined (reading 'split')

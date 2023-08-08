@@ -184,3 +184,116 @@ info: 08-08-2023 15:36:52: 	4826c2e0-7901-46f0-921f-622f5c42fd98 GET undefined /
 info: 08-08-2023 15:37:01: 	be0bc220-48a3-4dfd-a7d2-206bd9262350 GET undefined /employees?firstName=&lastName=22
 info: 08-08-2023 15:37:06: 	8bda6ba8-5af5-4cdf-b929-60ec3a18f620 GET undefined /employees?firstName=&lastName=user
 info: 08-08-2023 15:37:16: 	8fad8968-128d-4aa9-8f08-9f56e4335001 GET undefined /employees?firstName=avesh&lastName=
+info: 08-08-2023 16:09:16: 	0741a2ca-1581-4b0e-81f0-205541e3dcfa GET undefined /employees
+info: 08-08-2023 16:41:26: 	ae636494-9103-43cd-8d0c-41a4d207a116 POST undefined /employees
+info: 08-08-2023 16:42:33: 	4b1ce0ed-a54c-447e-bde3-9e9847094bef POST undefined /employees
+info: 08-08-2023 16:43:26: 	b6285588-48ef-41c7-b1e3-9c6a4f48bb48 POST undefined /employees
+info: 08-08-2023 16:44:42: 	fb562d93-c4c8-4c90-9327-ec4763dacc2f POST undefined /employees
+error: 08-08-2023 16:44:42: 	TypeError Cannot read properties of undefined (reading 'message')
+info: 08-08-2023 16:45:02: 	914adf9d-8749-43ad-a4f9-ab6794aeb66b POST undefined /employees
+error: 08-08-2023 16:45:02: 	TypeError Cannot read properties of undefined (reading 'message')
+info: 08-08-2023 16:45:17: 	0c6b8679-92e3-43d3-a5cf-e1dc767543f7 POST undefined /employees
+info: 08-08-2023 16:47:01: 	2f66587e-4409-406f-a826-f10243076c9f POST undefined /employees
+info: 08-08-2023 16:48:12: 	c7a54e9b-60fb-4a82-ad8c-d56be6509784 POST undefined /employees
+info: 08-08-2023 16:48:26: 	2114d72d-e131-4daa-803c-7a18894f6e33 POST undefined /employees
+info: 08-08-2023 16:48:35: 	816fab67-3143-4b05-affa-cbe6f57dafab POST undefined /employees
+info: 08-08-2023 16:49:21: 	3832cf95-89ca-42c2-8870-63a6cf2d0ee8 POST undefined /employees
+info: 08-08-2023 16:49:44: 	28eedd7c-c633-4950-82aa-cbf364cfdd8f POST undefined /employees
+info: 08-08-2023 16:51:01: 	63e67019-1597-48cb-a350-a364047798bf GET undefined /employees
+info: 08-08-2023 17:16:36: 	e80b74ad-2d8c-4ef5-8090-99ed583864dd POST undefined /employees
+info: 08-08-2023 17:16:53: 	b25cca0b-b792-467b-9921-74e52a740077 POST undefined /employees
+error: 08-08-2023 17:16:53: 	SyntaxError Unexpected token } in JSON at position 197
+info: 08-08-2023 17:16:58: 	c4edcbce-f5d2-4677-b60d-0e7cf9b74464 POST undefined /employees
+info: 08-08-2023 17:23:16: 	099d95b4-237d-4b76-bf65-ffdb7e869499 PUT undefined /employees
+error: 08-08-2023 17:23:16: 	SyntaxError Unexpected token , in JSON at position 206
+info: 08-08-2023 17:23:42: 	3318ff9e-0b82-4e00-9f8a-a34722030931 PUT undefined /employees
+error: 08-08-2023 17:23:42: 	SyntaxError Unexpected token , in JSON at position 206
+info: 08-08-2023 17:25:08: 	c332e896-b902-4d87-b762-d988098baf46 PUT undefined /employees
+error: 08-08-2023 17:25:08: 	SyntaxError Unexpected token , in JSON at position 206
+info: 08-08-2023 17:25:44: 	2df2bb7a-ba01-44d4-9069-f8267a064632 PUT undefined /employees
+error: 08-08-2023 17:25:44: 	SyntaxError Unexpected token , in JSON at position 206
+info: 08-08-2023 17:27:41: 	38807612-d236-469f-ac4d-a82e1746290f PUT undefined /employees
+error: 08-08-2023 17:27:41: 	SyntaxError Unexpected token , in JSON at position 206
+info: 08-08-2023 17:27:56: 	ba1171ef-1b50-4026-af58-8eba1af3f7ef PUT undefined /employees
+info: 08-08-2023 17:29:25: 	a3815901-d3a7-470c-a60c-d535d8ab9187 DELETE undefined /employees/1756f627-aa07-4033-a18f-f258976398df
+info: 08-08-2023 17:30:20: 	d61078f5-a29f-4276-8415-78cf93e58c4f GET undefined /employees
+info: 08-08-2023 17:30:46: 	49c05d5c-a23d-4189-9ca5-83dc3c2af689 PUT undefined /employees
+info: 08-08-2023 17:31:46: 	b3118673-edc6-4e85-82a3-a97ad90f5066 POST undefined /employees
+info: 08-08-2023 17:32:44: 	30ebe9f3-540f-4222-a06b-209eba8afef1 PUT undefined /employees
+info: 08-08-2023 17:33:37: 	f73209e9-c9b3-458e-842b-9280bf9a5f76 POST undefined /employees
+info: 08-08-2023 17:33:53: 	794f9c8f-a406-4069-945b-7e97c799beb4 GET undefined /employees
+info: 08-08-2023 17:35:00: 	702b27f8-995f-4121-82cf-1b0c29a97086 GET undefined /employees?hobbies=sports
+info: 08-08-2023 17:35:19: 	e39dd0cd-e9cb-47f4-96f5-494cdcf00970 GET undefined /employees?birthYear=1997
+info: 08-08-2023 17:35:49: 	77be57c0-bc33-4251-95a4-61846ac6a218 GET undefined /employees?firstName=harry
+info: 08-08-2023 17:37:41: 	16eca6e2-58a3-4fd8-b946-e4fae654029e GET undefined /employees?firstName=user
+info: 08-08-2023 17:37:48: 	812b191f-25b9-45b6-9731-a109d73cf847 GET undefined /employees?lastName=user
+info: 08-08-2023 17:37:57: 	ef1dc267-f781-4f0a-a249-f3f75176714f GET undefined /employees?birthYear=1998
+info: 08-08-2023 17:39:23: 	806f21eb-a6ae-4766-a29f-ebc36c4d0905 GET undefined /employees
+info: 08-08-2023 17:39:42: 	1184bd40-54a4-4c97-9525-a9e65641c671 GET undefined /employees?maritalStatus=true
+info: 08-08-2023 17:40:11: 	af7aa680-266e-4cb5-b874-f0171717524f GET undefined /employees?maritalStatus=true
+info: 08-08-2023 17:41:23: 	435271c1-88b7-4eb2-823b-188a39109687 GET undefined /employees?maritalStatus=true
+info: 08-08-2023 17:42:40: 	ab841576-79f0-406d-a67e-5388d1c6eac3 GET undefined /employees?birthYear=1998
+info: 08-08-2023 17:42:51: 	e330fa67-242e-4c3f-8add-209a4041e3a2 GET undefined /employees?birthYear=1997
+info: 08-08-2023 17:42:57: 	e966a9fc-b779-4f67-84bd-f8dc30498756 GET undefined /employees?birthYear=1999
+info: 08-08-2023 17:44:36: 	08363f68-c4e0-4790-8052-e3c5170e3f1e GET undefined /employees?birthYear=1999
+info: 08-08-2023 17:46:17: 	cbe5102c-e30c-4320-bf3e-22b079b58ca9 GET undefined /employees?hobbies=sports,gym
+info: 08-08-2023 17:46:44: 	b091697b-7e71-4c88-822f-8c9b8a2cf452 GET undefined /employees?hobbies=sports,gym
+info: 08-08-2023 17:48:39: 	33644a6d-757a-4db9-90c3-c1126adb6911 GET undefined /employees?birthYear=1999
+info: 08-08-2023 18:05:07: 	0be64c46-9591-436c-9a5e-db9faadb859a GET undefined /employees?hobbies=sports,gym
+info: 08-08-2023 18:05:24: 	ef7bd32c-022b-4903-a5fe-eb562bebf1e2 GET undefined /employees?hobbies=sports,gym
+info: 08-08-2023 18:06:38: 	46c459dc-d89a-4ffb-b4b9-2a5b56f6d71f GET undefined /employees?hobbies=sports,gym
+info: 08-08-2023 18:09:39: 	b13b1d46-dcff-4c09-9c58-9d295f65ceee GET undefined /employees?hobbies=sports,gym
+info: 08-08-2023 18:15:10: 	1282b289-75ad-4311-9556-09698aa6d48b GET undefined /employees?hobbies=sports,gym
+info: 08-08-2023 18:15:32: 	fc73f5d5-4917-4dcb-a3f7-1ce2bfefde9e GET undefined /employees?hobbies=work
+info: 08-08-2023 18:15:48: 	43a4a3ea-3ae0-495a-9f72-cdafab40c0cf GET undefined /employees?birthYear=1999
+error: 08-08-2023 18:15:48: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-08-2023 18:17:31: 	db9b1bad-4f7e-42de-b309-b9a4f4e55994 GET undefined /employees?birthYear=1999
+error: 08-08-2023 18:17:31: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-08-2023 18:17:33: 	6fab5703-8493-4106-9e05-cb1b88c7112d GET undefined /employees?birthYear=1999
+error: 08-08-2023 18:17:33: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-08-2023 18:17:35: 	bef08a4e-9f23-43b5-8763-b1264cdca1c7 GET undefined /employees?birthYear=1999
+error: 08-08-2023 18:17:35: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-08-2023 18:17:36: 	f4e9416c-dd8d-4d9a-8681-df8e05e13433 GET undefined /employees?birthYear=1999
+error: 08-08-2023 18:17:36: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-08-2023 18:17:42: 	c32fdf9d-a8d0-4037-a51d-3868100570b7 GET undefined /employees?birthYear=1999
+error: 08-08-2023 18:17:42: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-08-2023 18:17:51: 	f3417546-d950-4dcb-a81b-b50f65a1f813 GET undefined /employees?birthYear=1999
+error: 08-08-2023 18:17:51: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-08-2023 18:18:07: 	4b4f36dc-3e12-4d80-b54b-f7cd9ee77c2b GET undefined /employees?birthYear=1999
+info: 08-08-2023 18:23:02: 	71d9a11a-b770-4ca8-a9ef-0754f5e0f1ec GET undefined /employees?birthYear=1999
+info: 08-08-2023 18:23:18: 	15400ba9-d2ad-4573-b768-78c3494756a7 GET undefined /employees?birthYear=1999&hobbies=gym
+info: 08-08-2023 18:23:30: 	2fb2aad7-b46f-440f-9254-f14985e8c3ff GET undefined /employees?hobbies=gym
+info: 08-08-2023 18:23:33: 	db3decae-1d7b-4334-a7c5-f6f8d4de2bf5 GET undefined /employees?hobbies=gym
+info: 08-08-2023 18:23:34: 	a6339652-807a-4574-b35f-da98e4f1f9c7 GET undefined /employees?hobbies=gym
+info: 08-08-2023 18:23:35: 	ed19e071-05a2-4172-9df1-ab02bf9ec7c9 GET undefined /employees?hobbies=gym
+info: 08-08-2023 18:23:41: 	ad192d8e-07db-4105-8cfc-016c653704e0 GET undefined /employees?hobbies=gym
+info: 08-08-2023 18:23:42: 	be28ffa6-1061-46a7-8585-ed1f80da5192 GET undefined /employees?hobbies=gym
+info: 08-08-2023 18:24:18: 	237e409c-7408-4045-b164-8e2f96a32cdf GET undefined /employees?hobbies=gym
+info: 08-08-2023 18:24:59: 	d3d0bc3c-7997-4bd0-a264-f432115257f8 GET undefined /employees?hobbies=gym
+info: 08-08-2023 18:25:05: 	3a9b8f64-fcb8-4b17-a5d6-26b9b6e83d94 GET undefined /employees?hobbies=gym
+info: 08-08-2023 18:28:02: 	88082427-b267-4a74-96c5-fdd866b746ca GET undefined /employees?hobbies=gym
+info: 08-08-2023 18:29:18: 	d212ff63-9173-46cd-9df5-b26052995f33 GET undefined /employees?hobbies=gym
+info: 08-08-2023 18:30:13: 	1386766e-4fee-49db-b4c7-b3326d7ecb17 GET undefined /employees?hobbies=gym
+info: 08-08-2023 18:30:55: 	eac57444-d409-428d-a08c-a6776c595309 GET undefined /employees?hobbies=gym
+info: 08-08-2023 18:31:34: 	d3d21076-e58a-409b-989f-4f697bbd0227 GET undefined /employees?hobbies=gym&birthYear=1999
+info: 08-08-2023 18:31:40: 	1ff511eb-aae3-4273-a5ba-7185c156d427 GET undefined /employees?birthYear=1999
+error: 08-08-2023 18:31:40: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-08-2023 18:31:50: 	4c023155-af87-476f-b5f3-e88d51ce1451 GET undefined /employees?birthYear=1999
+info: 08-08-2023 18:34:22: 	d27fc50d-c429-4592-93d0-ce5f5b104ab2 GET undefined /employees?birthYear=1999&hobbies=work
+info: 08-08-2023 18:34:33: 	0567e085-e466-45ee-8e99-c6a896b0efe7 GET undefined /employees?birthYear=1999&hobbies=work,gym,sports
+info: 08-08-2023 18:37:16: 	48135368-bc2f-4e55-ba9b-cbdc4357a737 GET undefined /employees?birthYear=1999&hobbies=work,gym,sports
+info: 08-08-2023 18:37:25: 	bcc07644-6a7e-41ab-bfcd-54cd1d02b3bd GET undefined /employees?maritalStatus=true
+info: 08-08-2023 18:37:28: 	53be00d3-3140-437d-9521-291f96ab2f81 GET undefined /employees?maritalStatus=true
+info: 08-08-2023 18:37:29: 	b574fec3-ef27-4fb0-91fe-9d34c2421c20 GET undefined /employees?maritalStatus=true
+info: 08-08-2023 18:46:08: 	3f96bdd0-b95d-4b9f-ae47-6af734569a62 GET undefined /employees?maritalStatus=true
+info: 08-08-2023 18:47:12: 	29074c09-fed2-4bf2-9d1e-5a4f62d6ac42 GET undefined /employees?maritalStatus=true
+info: 08-08-2023 18:48:03: 	108309a2-82ab-48e4-916a-3f323f97721a GET undefined /employees?birthYear=1999
+info: 08-08-2023 18:48:16: 	99b7b23e-0299-45c1-9075-de765439b742 GET undefined /employees?birthYear=1999
+info: 08-08-2023 18:48:35: 	2d1fc2bd-0d65-4236-a6b8-1852891a3883 GET undefined /employees?birthYear=
+info: 08-08-2023 18:48:57: 	17d0c413-7523-43a6-9741-eb29af311b4e GET undefined /employees?birthYear=
+info: 08-08-2023 18:48:59: 	11b340b0-5581-4b34-9562-67550f4a64c8 GET undefined /employees?birthYear=
+info: 08-08-2023 18:49:01: 	93fa3c06-8aea-4133-8c87-83cf12f96c86 GET undefined /employees?birthYear=
+info: 08-08-2023 18:53:44: 	363901a2-e5f8-4a1c-acdd-30b3c9dd0d19 GET undefined /employees?birthYear=
+info: 08-08-2023 18:55:52: 	a86ce314-8c51-4072-b1f3-3068026ce3c1 GET undefined /employees?birthYear=1999&firstName=sfsdfs
+info: 08-08-2023 18:59:12: 	440dd34a-f15a-4b70-acb6-1e7917dbe72b GET undefined /employees?birthYear=1999&firstName=sfsdfs
+info: 08-08-2023 18:59:18: 	71fe7eaa-f0bf-4de1-ac2a-1133087df97f GET undefined /employees?birthYear=1999&firstName=

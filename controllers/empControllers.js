@@ -16,9 +16,15 @@ const getEmployees = (req, res) => {
       : res.status(404).send("sorry user isn't found!");
   } else if (Object.keys(req.query).length) {
     const filteredData = data.filter((d) =>
-      Object.entries(req.query).every(([key, value]) =>
-        key && value ? d[key] === value : true
-      )
+      Object.entries(req.query).every(([key, value]) => {
+        return key && value
+          ? key === "birthYear"
+            ? d[key] === Number(value)
+            : key === "hobbies"
+            ? d[key].sort().join(",") === value.split(",").sort().join(",") //For compare two array
+            : d[key] === value
+          : true;
+      })
     );
     return filteredData.length
       ? res.status(201).send(filteredData)
@@ -26,7 +32,13 @@ const getEmployees = (req, res) => {
       ? res.send(filteredData)
       : res.send(
           data.filter((d) =>
-            Object.entries(req.query).some(([key, value]) => d[key] === value)
+            Object.entries(req.query).some(([key, value]) =>
+              key === "birthYear"
+                ? d[key] === Number(value)
+                : key === "hobbies"
+                ? d[key].sort().join(",") === value.split(",").sort().join(",")
+                : d[key] === value
+            )
           )
         );
   }
@@ -73,26 +85,23 @@ const createNewEmployee = (req, res) => {
 
 //Update employee
 const updateEmployee = (req, res) => {
-  if (!req.body.id || !req.body.firstName || !req.body.lastName) {
-    return res.status(404).send("All fields are Required!");
-  } else {
-    fs.readFile(emp, "utf-8", (err, data) => {
-      const empData = [...JSON.parse(data)];
-      const findIdx = empData.findIndex((e) => e.id === req.body.id);
-      if (findIdx < 0) {
-        return res.status(404).send("Sorry cannot find the user!");
-      } else {
-        empData[findIdx].firstName = req.body.firstName;
-        empData[findIdx].lastName = req.body.lastName;
-        empData.splice(findIdx, 1, empData[findIdx]);
-        fs.writeFile(emp, JSON.stringify(empData), "utf-8", (err) => {
-          return err
-            ? res.status(500).send("Internal Server Error!")
-            : res.status(201).send("Update Success!");
-        });
-      }
-    });
-  }
+  fs.readFile(emp, "utf-8", (err, data) => {
+    if (err) {
+      return res.status(500).send("Internal Server Error!");
+    }
+    const empData = [...JSON.parse(data)];
+    const findIdx = empData.findIndex((e) => e.id === req.body.id);
+    if (findIdx < 0) {
+      return res.status(404).send("Sorry cannot find the user!");
+    } else {
+      empData.splice(findIdx, 1, req.body);
+      fs.writeFile(emp, JSON.stringify(empData), "utf-8", (err) => {
+        return err
+          ? res.status(500).send("Internal Server Error!")
+          : res.status(201).send("Update Success!");
+      });
+    }
+  });
 };
 
 //Delete the employee
