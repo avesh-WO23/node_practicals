@@ -1,3 +1,9 @@
 
 error: 08-07-2023 15:58:46: 	ReferenceError _dirname is not defined
 error: 08-07-2023 15:58:59: 	ReferenceError _dirname is not defined
+error: 08-07-2023 17:28:57: 	TypeError The "cb" argument must be of type function. Received undefined
+error: 08-07-2023 17:29:17: 	TypeError The "data" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received an instance of Object
+error: 08-07-2023 17:29:38: 	TypeError The "data" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received an instance of Object
+error: 08-07-2023 17:29:54: 	SyntaxError Unexpected token o in JSON at position 1
+error: 08-07-2023 18:27:47: 	ReferenceError empa is not defined
+error: 08-07-2023 19:10:54: 	SyntaxError Unexpected token o in JSON at position 1

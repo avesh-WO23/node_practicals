@@ -6,17 +6,16 @@ const {
   updateEmployee,
   deleteEmployee,
   createNewEmployee,
-} = require("../../controllers/employeesController");
+} = require("../../controllers/empControllers");
 
 //for all routes
 router
   .route("/")
   .get(getAllEmployees)
   .post(createNewEmployee)
-  .put(updateEmployee)
-  .delete(deleteEmployee);
+  .put(updateEmployee);
 
 //For specific user
-router.route("/:id").get(getEmployee);
+router.route("/:id").get(getEmployee).delete(deleteEmployee);
 
 module.exports = { employeesRoutes: router };

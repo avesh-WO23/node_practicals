@@ -4,3 +4,82 @@ info: 08-07-2023 15:58:46: 	27d0dff7-4221-470d-8235-fe96bbb74bfd GET undefined /
 error: 08-07-2023 15:58:46: 	ReferenceError _dirname is not defined
 info: 08-07-2023 15:58:59: 	70ccea79-665b-4bd6-a7c8-30c6621cd75e GET undefined /dskfhksjfks
 error: 08-07-2023 15:58:59: 	ReferenceError _dirname is not defined
+info: 08-07-2023 16:06:16: 	ae1e75f0-ba35-4dd6-93d1-72a7d3853a98 GET undefined /dskfhksjfks
+info: 08-07-2023 16:06:31: 	b3390392-88d0-4624-9f2f-9250872ea0c8 GET undefined /
+info: 08-07-2023 16:18:11: 	c088f172-f971-4628-bc0f-d11e678f43b3 GET undefined /employees
+info: 08-07-2023 16:18:19: 	38ef7dbc-9c94-4b0b-b702-9b0b397ab52d POST undefined /employees
+info: 08-07-2023 16:18:24: 	8f519bd0-aa34-445e-bf14-0a899b9f22bb GET undefined /employees
+info: 08-07-2023 16:30:08: 	1494b2e0-7a9f-4630-90b5-bad55d51d2df GET undefined /
+info: 08-07-2023 16:30:08: 	1661dc3e-f89e-44a1-9107-7971f898de2d GET undefined /favicon.ico
+info: 08-07-2023 16:30:12: 	7f8659b8-e864-4513-894d-2037051c929f GET undefined /employees
+info: 08-07-2023 16:33:26: 	b5d0ac2c-daed-4ea0-a69a-61fc13e11831 GET undefined /employees
+info: 08-07-2023 16:33:45: 	440e0794-d53e-42df-8a59-a5e15366ca3e GET undefined /employees
+info: 08-07-2023 16:39:52: 	bf798580-b8a0-4bbb-8c5c-7c6e027470fa GET undefined /employees
+info: 08-07-2023 16:40:34: 	ee4d10fb-251a-4668-8258-838663d1bdea GET undefined /employees
+info: 08-07-2023 16:48:20: 	1ce33cc1-298c-436c-a9e2-eb5ec9365454 POST undefined /employees
+info: 08-07-2023 16:58:18: 	e9314ba8-ffdb-49fc-92ba-190545d5e2cd POST undefined /employees
+info: 08-07-2023 16:58:36: 	c34d6c2d-3bd9-4387-8944-120f7b33f6ca POST undefined /employees
+info: 08-07-2023 17:03:39: 	bd9955b2-ac70-46e8-942e-494febc5c692 GET undefined /employees
+info: 08-07-2023 17:03:44: 	0c01aa06-e051-4a56-b263-cad80be54ecc POST undefined /employees
+info: 08-07-2023 17:03:46: 	c064f46f-06db-4455-847f-061865d93c46 GET undefined /employees
+info: 08-07-2023 17:04:03: 	05003a93-643a-4e53-b1bc-7dc36f526307 POST undefined /employees
+info: 08-07-2023 17:04:08: 	9ffe6879-a234-44bd-84af-bc9422812b7b GET undefined /employees
+info: 08-07-2023 17:04:29: 	42292456-9e6b-4d67-a871-29820fd0cb09 GET undefined /employees
+info: 08-07-2023 17:12:06: 	b85accbb-b8c3-4c75-903f-de00ef79f5c1 POST undefined /employees
+info: 08-07-2023 17:12:19: 	1a6e8d98-5671-408b-ac5a-e609aec16e2e POST undefined /employees
+info: 08-07-2023 17:13:35: 	19fd1e6f-fba4-4da5-a417-11fc0d79a080 POST undefined /employees
+info: 08-07-2023 17:15:42: 	77b10cc1-5856-46c3-9623-a05ebaa3a921 POST undefined /employees
+info: 08-07-2023 17:15:55: 	4df42760-fe75-4efa-9cf7-a7d0116cc529 POST undefined /employees
+info: 08-07-2023 17:28:57: 	eb2cbf31-4dc6-4f6d-90e6-e202b9240189 POST undefined /employees
+error: 08-07-2023 17:28:57: 	TypeError The "cb" argument must be of type function. Received undefined
+info: 08-07-2023 17:29:17: 	e9c58150-cfb7-4dd4-a8f2-6bd1f745d458 POST undefined /employees
+error: 08-07-2023 17:29:17: 	TypeError The "data" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received an instance of Object
+info: 08-07-2023 17:29:38: 	afc0d2b2-3d68-4d33-b95b-bad4d8dae6b8 POST undefined /employees
+error: 08-07-2023 17:29:38: 	TypeError The "data" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received an instance of Object
+info: 08-07-2023 17:29:54: 	9045874f-b82a-4758-8f72-ca1e89dd49fa POST undefined /employees
+error: 08-07-2023 17:29:54: 	SyntaxError Unexpected token o in JSON at position 1
+info: 08-07-2023 17:38:03: 	ad746b71-30be-4ee7-bbc1-4e6a1fca575c POST undefined /employees
+info: 08-07-2023 18:18:17: 	28a5db57-5989-4639-a0b6-646d3d860cd0 POST undefined /employees
+info: 08-07-2023 18:18:31: 	507faf5f-7b9b-4c90-849b-d4ebe1f03552 POST undefined /employees
+info: 08-07-2023 18:24:35: 	011f98a5-80ff-4b3f-a835-742e06b79b06 POST undefined /employees
+info: 08-07-2023 18:25:03: 	d799a8ae-63cf-4084-b7a8-eb1226390879 POST undefined /employees
+info: 08-07-2023 18:27:47: 	c1551ca3-0a11-47c3-a2e8-df13ab22b92c POST undefined /employees
+error: 08-07-2023 18:27:47: 	ReferenceError empa is not defined
+info: 08-07-2023 18:28:26: 	4f4ca6f3-f3c2-4548-bb02-94be0b112b9a POST undefined /employees
+info: 08-07-2023 18:31:47: 	f107d608-7970-4f39-89cf-42201a6b4afd POST undefined /employees
+info: 08-07-2023 18:39:29: 	8b648d7f-f631-46cd-9b7f-12e7c6176e26 PUT undefined /employees
+info: 08-07-2023 18:40:06: 	cb842ede-d90d-4abb-a82f-0b5ed71bd86d PUT undefined /employees
+info: 08-07-2023 18:57:15: 	a4ddedd9-4e99-4fe2-97c9-9605f1c2d603 PUT undefined /employees
+info: 08-07-2023 18:57:27: 	6f3a2300-9515-49bb-802d-5e80f6c33c10 PUT undefined /employees
+info: 08-07-2023 18:57:39: 	95a46bd2-6f35-45af-aa68-dbcab8d57d87 PUT undefined /employees
+info: 08-07-2023 19:09:39: 	efa685e0-b641-4258-aea1-101676acc42e POST undefined /employees
+info: 08-07-2023 19:10:00: 	789b740b-41b0-4e5c-971b-adee4367c949 POST undefined /employees
+info: 08-07-2023 19:10:08: 	0312f803-eeeb-4598-9566-8a27b255c647 POST undefined /employees
+info: 08-07-2023 19:10:54: 	55eeec37-2a25-44cc-8ca4-7581d03a36f5 POST undefined /employees
+error: 08-07-2023 19:10:54: 	SyntaxError Unexpected token o in JSON at position 1
+info: 08-07-2023 19:11:36: 	b1c107e7-0c4c-4fb0-b979-f92bc3707a06 POST undefined /employees
+info: 08-07-2023 19:11:44: 	a5527198-56b6-4717-b35b-363349c6594e POST undefined /employees
+info: 08-08-2023 10:48:35: 	4a72f5e3-95c7-4957-9c9e-b4589155a9cf POST undefined /employees
+info: 08-08-2023 11:02:34: 	cd173170-884f-4c0d-8aa6-20b4f3e62123 GET undefined /employees
+info: 08-08-2023 11:04:37: 	8125a104-e82f-4d4f-bffd-945917a9c6a7 GET undefined /employees
+info: 08-08-2023 11:04:51: 	ac714db9-eeb9-4c9c-90a3-984265ee1e71 GET undefined /employees
+info: 08-08-2023 11:05:20: 	42ede612-7ca4-41ac-a2f1-bf8d2378c963 GET undefined /employees
+info: 08-08-2023 11:06:06: 	07d2f923-5332-4d34-9fae-9b587a275ea8 DELETE undefined /employees
+info: 08-08-2023 11:10:56: 	78b48a09-24bf-49d2-a3ca-0c6a4bd28c75 GET undefined /employees/bc4fef26-602b-47a1-be06-15d3fe0f376c
+info: 08-08-2023 11:15:18: 	25383868-44e7-403c-bd01-3fc5423f96f8 GET undefined /employees/bc4fef26-602b-47a1-be06-15d3fe0f376c
+info: 08-08-2023 11:15:31: 	2838e85b-2b4b-47a1-a2cf-63a11da5d71a GET undefined /employees/bc4fef26-602b-47a1-be06-15d3fe0f376c
+info: 08-08-2023 11:15:39: 	ddead950-9473-403e-ac2c-298e084fd350 GET undefined /employees/ashdkashd-skjafjasf
+info: 08-08-2023 11:16:03: 	245fc8ef-6288-46f6-9f31-1b9a36b5d4d8 GET undefined /employees/ashdkashd-skjafjasf
+info: 08-08-2023 11:16:17: 	e32a5c47-c858-4287-bb60-f4eed71e4148 GET undefined /employees/ashdkashd-skjafjasf
+info: 08-08-2023 11:17:45: 	f68f49cd-523b-444a-acb4-38d71f38534a GET undefined /employees/ashdkashd-skjafjasf
+info: 08-08-2023 11:18:08: 	6f864216-0e24-4237-a7aa-6215a2d28b77 GET undefined /employees/bc4fef26-602b-47a1-be06-15d3fe0f376c
+info: 08-08-2023 11:30:30: 	d2082b43-5802-4c05-a8c5-d5c9902203ca POST undefined /employees
+info: 08-08-2023 11:30:52: 	88eb69c9-58b6-49fe-bb6f-14050a6698ef DELETE undefined /employees/666814b5-0c8a-4659-8e1d-931cf8e4527b
+info: 08-08-2023 11:31:43: 	b4c510e2-d53e-4d86-a969-1488713ad79b DELETE undefined /employees/666814b5-0c8a-4659-8e1d-931cf8e4527b
+info: 08-08-2023 11:32:03: 	a5479bc0-c753-4cfe-862e-71fd16528f82 DELETE undefined /employees/666814b5-0c8a-4659-8e1d-931cf8e4527b
+info: 08-08-2023 11:33:04: 	d41960ea-5b7e-4b7e-b631-9970091f5761 DELETE undefined /employees/666814b5-0c8a-4659-8e1d-931cf8e4527b
+info: 08-08-2023 11:33:46: 	db97f1f3-997c-4d4f-8301-3ed09827eae9 DELETE undefined /employees/666814b5-0c8a-4659-8e1d-931cf8e4527b
+info: 08-08-2023 11:34:42: 	dbddeebf-eb95-4c24-bc32-6663563844b1 DELETE undefined /employees/666814b5-0c8a-4659-8e1d-931cf8e4527b
+info: 08-08-2023 11:39:15: 	49d810a4-bb1b-49e5-ad94-58a2ed23712d DELETE undefined /employees/666814b5-0c8a-4659-8e1d-931cf8e4527b
+info: 08-08-2023 11:39:31: 	58060115-59e9-4392-9c3c-ef9c8b711b3c DELETE undefined /employees/666814b5-0c8a-4659-8e1d-931cf8e4527b
+info: 08-08-2023 11:39:55: 	5b2981c4-13a7-4f39-a380-2b4477af63ab DELETE undefined /employees/666814b5-0c8a-4659-8e1d-931cf8e4527b
