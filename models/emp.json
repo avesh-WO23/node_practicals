@@ -1,6 +1,6 @@
 [
   {
-    "firstName": "aveshH",
+    "firstName": "avesh",
     "lastName": "one",
     "maritalStatus": false,
     "hobbies": ["gym"],
@@ -19,7 +19,7 @@
     "firstName": "Avesh",
     "lastName": "two",
     "maritalStatus": false,
-    "hobbies": ["work"],
+    "hobbies": ["work", "gym"],
     "birthYear": 1997,
     "id": "923356e6-2928-4c83-889f-793b4439fbf8"
   },

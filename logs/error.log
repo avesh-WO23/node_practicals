@@ -24,3 +24,10 @@ error: 08-08-2023 18:17:36: 	TypeError Cannot read properties of undefined (read
 error: 08-08-2023 18:17:42: 	TypeError Cannot read properties of undefined (reading 'split')
 error: 08-08-2023 18:17:51: 	TypeError Cannot read properties of undefined (reading 'split')
 error: 08-08-2023 18:31:40: 	TypeError Cannot read properties of undefined (reading 'split')
+error: 08-09-2023 13:07:20: 	ReferenceError filteredData is not defined
+error: 08-09-2023 13:07:36: 	ReferenceError filteredData is not defined
+error: 08-09-2023 13:08:17: 	ReferenceError filteredData is not defined
+error: 08-09-2023 13:08:40: 	ReferenceError filteredData is not defined
+error: 08-09-2023 13:08:48: 	ReferenceError filteredData is not defined
+error: 08-09-2023 13:11:22: 	ReferenceError filteredData is not defined
+error: 08-09-2023 13:46:12: 	TypeError d[key].toLowerCase is not a function

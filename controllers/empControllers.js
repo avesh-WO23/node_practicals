@@ -6,41 +6,52 @@ const { v4: uuid } = require("uuid");
 
 const emp = path.join(__dirname, "../models/emp.json");
 
+const FILTER_KEYWORDS = [
+  "firstName",
+  "lastName",
+  "hobbies",
+  "maritalStatus",
+  "birthYear",
+  "id",
+];
+
 //all employees
 const getEmployees = (req, res) => {
   const data = JSON.parse(fs.readFileSync(emp, { encoding: "utf-8" }));
   if (req.params.id) {
     const findIdx = data.findIndex((d) => d.id === req.params.id);
     return findIdx > 0
-      ? res.status(201).send(data[findIdx])
+      ? res.status(200).send(data[findIdx])
       : res.status(404).send("sorry user isn't found!");
   } else if (Object.keys(req.query).length) {
-    const filteredData = data.filter((d) =>
-      Object.entries(req.query).every(([key, value]) => {
-        return key && value
-          ? key === "birthYear"
-            ? d[key] === Number(value)
-            : key === "hobbies"
-            ? d[key].sort().join(",") === value.split(",").sort().join(",") //For compare two array
-            : d[key] === value
-          : true;
-      })
-    );
-    return filteredData.length
-      ? res.status(201).send(filteredData)
-      : data.every((d) => Object.keys(req.query).every((q) => q in d)) //in is like hasOwnProperty of object d.hasOwnProperty(q)
-      ? res.send(filteredData)
-      : res.send(
-          data.filter((d) =>
-            Object.entries(req.query).some(([key, value]) =>
-              key === "birthYear"
-                ? d[key] === Number(value)
-                : key === "hobbies"
-                ? d[key].sort().join(",") === value.split(",").sort().join(",")
-                : d[key] === value
-            )
-          )
-        );
+    const queryObj = {};
+    Object.entries(req.query).forEach(([key, value]) => {
+      if (FILTER_KEYWORDS.includes(key) && value) {
+        if (key === "birthYear") {
+          queryObj[key] = Number(value);
+        } else if (key === "hobbies" && value.length) {
+          queryObj[key] = value.split(",");
+        } else {
+          queryObj[key] = value;
+        }
+      }
+    });
+    const filteredData = data.filter((d) => {
+      return Object.entries(queryObj).every(([key, value]) => {
+        if (key === "hobbies") {
+          for (let ele of value) {
+            if (d[key].includes(ele) && value.length <= d[key].length) {
+              return true;
+            }
+            return false;
+          }
+        } else if (typeof value === "string") {
+          return d[key].toLowerCase() === value.toLowerCase();
+        }
+        return d[key] === value;
+      });
+    });
+    return res.status(200).send(filteredData);
   }
   //for all user
   fs.readFile(emp, "utf-8", (err, data) => {
@@ -98,7 +109,7 @@ const updateEmployee = (req, res) => {
       fs.writeFile(emp, JSON.stringify(empData), "utf-8", (err) => {
         return err
           ? res.status(500).send("Internal Server Error!")
-          : res.status(201).send("Update Success!");
+          : res.status(200).send("Update Success!");
       });
     }
   });
@@ -118,28 +129,11 @@ const deleteEmployee = (req, res) => {
       fs.writeFile(emp, JSON.stringify(updatedData), "utf-8", (err) => {
         return err
           ? res.status(500).send("Internal Server Error!")
-          : res.status(201).send("deleted!");
+          : res.status(200).send("deleted!");
       });
     }
   });
 };
-
-//get single employee
-// const getEmployee = (req, res) => {
-//   const empId = req.params.id;
-//   if (!empId) {
-//     return res.status(404).send("Invalid user!");
-//   }
-//   fs.readFile(emp, "utf-8", (err, data) => {
-//     if (err) {
-//       return res.status(500).send("Internal Server Error!");
-//     }
-//     const getEmp = JSON.parse(data).find((d) => d.id === empId);
-//     return getEmp
-//       ? res.status(201).send(getEmp)
-//       : res.status(404).send("cannot find the user!");
-//   });
-// };
 
 module.exports = {
   createNewEmployee,
