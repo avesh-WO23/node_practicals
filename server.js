@@ -11,6 +11,7 @@ const { homeRoutes } = require("./routes/root");
 const { employeesRoutes } = require("./routes/api/employees");
 const boolParser = require("express-query-boolean");
 const { connectDb } = require("./config/mongoConfig");
+const { productRoutes } = require("./routes/api/products");
 
 class MyEmitter extends EventEmitter {}
 
@@ -24,8 +25,13 @@ const myEmitter = new MyEmitter();
 //Custom Middleware
 app.use(logged);
 
+//For parse the data we get from the req.body
 app.use(express.json());
 
+//for parse the data we get from the content-type - urlencoded x-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
+
+//for parse the convert boolean query to value
 app.use(boolParser());
 
 //for cors-origin error
@@ -66,6 +72,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(homeRoutes);
 app.use("/sub", subRoutes);
 app.use("/employees", employeesRoutes);
+app.use("/products", productRoutes);
 //it will going to able to find the file so it will send 200 response but if you want send manually status or chang status then use res.status()
 
 //app.all Is actually use for all type of requests it could be any type of request
@@ -75,11 +82,16 @@ app.all("*", (req, res) => {
   res.status(404).sendFile(path.join(__dirname, "views", "404.htm"));
 });
 
+//For error logs
 app.use(errorEvents);
 
 // --------------------------------MONGO--------------------------
 
 connectDb();
+
+app.listen(8000, () => {
+  console.log("server connected!");
+});
 
 // call route like middleware for Specific path
 

@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const express = require("express");
-const app = express();
 
 //config env
 dotenv.config();
@@ -13,9 +11,7 @@ const connectDb = () => {
   mongoose
     .connect(URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
-      app.listen(process.env.PORT, () => {
-        console.log(`Server is now live at ${process.env.PORT}`);
-      });
+      console.log(`Mongo Connected!`);
     })
     .catch((err) => {
       console.log(err);
