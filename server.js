@@ -2,7 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const path = require("path");
-const http = require("http");
 const bodyParser = require("body-parser");
 const { EventEmitter } = require("stream");
 const { logged } = require("./middlewares/logEvents");
@@ -11,6 +10,7 @@ const { subRoutes } = require("./routes/subDir");
 const { homeRoutes } = require("./routes/root");
 const { employeesRoutes } = require("./routes/api/employees");
 const boolParser = require("express-query-boolean");
+const { connectDb } = require("./config/mongoConfig");
 
 class MyEmitter extends EventEmitter {}
 
@@ -32,23 +32,23 @@ app.use(boolParser());
 
 //We can also added cors enable options for allow only for specific domains
 
-const enabledDomains = ["https://www.google.com"];
+// const enabledDomains = ["https://www.google.com"];
 
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (enabledDomains.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed By origins CORS"));
-    }
-  },
-  optionsSuccessStatus: 200,
-};
+// const corsOptions = {
+//   origin: (origin, callback) => {
+//     if (enabledDomains.includes(origin) || !origin) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed By origins CORS"));
+//     }
+//   },
+//   optionsSuccessStatus: 200,
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 //For all Origins
-// app.use(cors());
+app.use(cors());
 
 //Serve static file using express
 app.use(express.static(path.join(__dirname, "public")));
@@ -66,6 +66,20 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(homeRoutes);
 app.use("/sub", subRoutes);
 app.use("/employees", employeesRoutes);
+//it will going to able to find the file so it will send 200 response but if you want send manually status or chang status then use res.status()
+
+//app.all Is actually use for all type of requests it could be any type of request
+
+//404
+app.all("*", (req, res) => {
+  res.status(404).sendFile(path.join(__dirname, "views", "404.htm"));
+});
+
+app.use(errorEvents);
+
+// --------------------------------MONGO--------------------------
+
+connectDb();
 
 // call route like middleware for Specific path
 
@@ -125,18 +139,3 @@ app.use("/employees", employeesRoutes);
 //   // myEmitter.emit("log", req?.body?.userInput);
 //   res.send("success");
 // });
-
-//it will going to able to find the file so it will send 200 response but if you want send manually status or chang status then use res.status()
-
-//app.all Is actually use for all type of requests it could be any type of request
-
-//404
-app.all("*", (req, res) => {
-  res.status(404).sendFile(path.join(__dirname, "views", "404.htm"));
-});
-
-app.use(errorEvents);
-
-app.listen(8000, () => {
-  console.log("server is on");
-});
