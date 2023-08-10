@@ -75,8 +75,17 @@ app.use("/employees", employeesRoutes);
 app.use("/products", productRoutes);
 //it will going to able to find the file so it will send 200 response but if you want send manually status or chang status then use res.status()
 
-//app.all Is actually use for all type of requests it could be any type of request
+//Error handling
+// app.use((err, req, res, next) => {
+//   console.log("err", err);
+//   res.status(err.status || 500);
+//   res.send({
+//     error: err.status || 500,
+//     message: err.message,
+//   });
+// });
 
+//app.all Is actually use for all type of requests it could be any type of request
 //404
 app.all("*", (req, res) => {
   res.status(404).sendFile(path.join(__dirname, "views", "404.htm"));

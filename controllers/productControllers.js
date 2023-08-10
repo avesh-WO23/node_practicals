@@ -25,8 +25,14 @@ const getProducts = async (req, res) => {
         return res.status(200).send(getSingleProduct);
       }
       //for query
-      console.log("queries", req.query);
-      const products = await Product.find({ $or: [] });
+      const queryObj = {};
+      for (let key in req.query) {
+        if (req.query[key]) {
+          queryObj[key] = req.query[key];
+        }
+      }
+      console.log("query", queryObj);
+      const products = await Product.find(queryObj);
       return res.send(products);
     }
   } catch (error) {
@@ -67,7 +73,7 @@ const deleteProduct = async (req, res) => {
       return res.send("Successfully Deleted!");
     }
   } catch (error) {
-    return res.status(404).send("Not Found!");
+    return res.status(404).send(error.message);
   }
 };
 
