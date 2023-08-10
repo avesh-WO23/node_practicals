@@ -18,4 +18,15 @@ const connectDb = () => {
     });
 };
 
+mongoose.connection.on("disconnected", () => {
+  console.log("mongoose connection is disconnected");
+});
+
+process.on("SIGINT", () => {
+  mongoose.connection.close(() => {
+    console.log("mongoose close");
+    process.exit(0);
+  });
+});
+
 module.exports = { connectDb };

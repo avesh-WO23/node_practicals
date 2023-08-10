@@ -31,8 +31,21 @@ const getProducts = async (req, res) => {
           queryObj[key] = req.query[key];
         }
       }
-      console.log("query", queryObj);
+
+      //My Own custom method added inside the schema of the product
+      // const products = await Product.findByProductName(req.query.name);
+
+      //We can also create our own Custom mongoose query with where method
+      // const products = await Product.where("price").lt(10);
+
+      //We can also create our method that add inside the query
+      // const products = await Product.find().byName(queryObj.name);
+
       const products = await Product.find(queryObj);
+
+      //Custom created method for each instance in the product schema
+      // console.log(products[0].sayPrice());
+
       return res.send(products);
     }
   } catch (error) {
