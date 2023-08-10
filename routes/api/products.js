@@ -8,11 +8,8 @@ const {
 
 const router = express.Router();
 
-router
-  .route("/")
-  .get(getProducts)
-  .post(addProduct)
-  .put(updateProduct)
-  .delete(deleteProduct);
+router.route("/").get(getProducts).post(addProduct);
+
+router.route("/:id").get(getProducts).delete(deleteProduct).put(updateProduct);
 
 module.exports = { productRoutes: router };
