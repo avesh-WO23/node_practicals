@@ -54,8 +54,8 @@ const getProducts = async (req, res) => {
         //Added query
         match: {
           $and: [
-            { firstName: { $eq: "avesh" } },
-            { hobbies: { $in: ["gym"] } },
+            { firstName: { $eq: "user" } },
+            { hobbies: { $in: ["sports"] } },
           ],
         },
       });
@@ -75,6 +75,11 @@ const addProduct = async (req, res) => {
   const newProduct = new Product(req.body);
   try {
     const result = await newProduct.save();
+    //For specific what type of your model want add for populate
+    // const result = await Product.create({
+    //   ...req.body,
+    //   docModal: "Person",
+    // });
     res.status(201).send(result);
   } catch (error) {
     res.send(error.message);

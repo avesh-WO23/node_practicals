@@ -15,6 +15,20 @@ const ProductSchema = new mongoose.Schema({
       ref: "Person",
     },
   ],
+  //Like if we want to add multiple schema for different products for the owner like if product is 'pizza' it belongs to owner which is Person schema if product is "belt" then it belongs to owner Animal schema dog
+
+  // like we want to add different schemas for different Product.owner
+
+  // owner: [
+  //   {
+  //     type: mongoose.Schema.Types.ObjectId,
+  //     refPath: "docModal",
+  //   },
+  // ],
+  // docModal: {
+  //   type: String,
+  //   enum: ["Person"],
+  // },
 });
 
 //We can create individual methods for every instance of the Product class instances
