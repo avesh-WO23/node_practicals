@@ -12,6 +12,7 @@ const { employeesRoutes } = require("./routes/api/employees");
 const boolParser = require("express-query-boolean");
 const { connectDb } = require("./config/mongoConfig");
 const { productRoutes } = require("./routes/api/products");
+const { authRoutes } = require("./routes/api/auth");
 
 class MyEmitter extends EventEmitter {}
 
@@ -73,6 +74,7 @@ app.use(homeRoutes);
 app.use("/sub", subRoutes);
 app.use("/employees", employeesRoutes);
 app.use("/products", productRoutes);
+app.use("/auth", authRoutes);
 //it will going to able to find the file so it will send 200 response but if you want send manually status or chang status then use res.status()
 
 //Error handling

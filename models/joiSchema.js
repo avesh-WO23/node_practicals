@@ -1,6 +1,6 @@
 const Joi = require("joi");
 
-const schema = Joi.object({
+const employeeSchema = Joi.object({
   firstName: Joi.string().min(3).max(12).required(),
   lastName: Joi.string().min(3).max(12).required(),
   birthYear: Joi.number().required(),
@@ -9,4 +9,9 @@ const schema = Joi.object({
   id: Joi.string().optional(),
 });
 
-module.exports = { employeeSchema: schema };
+const authSchema = Joi.object({
+  email: Joi.string().lowercase().required(),
+  password: Joi.string().min(4).max(12).required(),
+});
+
+module.exports = { employeeSchema, authSchema };
