@@ -41,12 +41,29 @@ const getProducts = async (req, res) => {
       //We can also create our method that add inside the query
       // const products = await Product.find().byName(queryObj.name);
 
-      const products = await Product.find(queryObj);
+      //If we want to get specific field to populate
+      // const products = await Product.find(queryObj).populate(
+      //   "owner",
+      //   "firstName lastName"
+      // );
+
+      //If we want to execute specific field and also want to add extra query inside the populate like for the filter for want specific document.
+      const products = await Product.find(queryObj).populate({
+        path: "owner",
+        select: "lastName",
+        //Added query
+        match: {
+          $and: [
+            { firstName: { $eq: "avesh" } },
+            { hobbies: { $in: ["gym"] } },
+          ],
+        },
+      });
+      return res.send(products);
+      // products.owner = owner;
 
       //Custom created method for each instance in the product schema
       // console.log(products[0].sayPrice());
-
-      return res.send(products);
     }
   } catch (error) {
     res.status(404).send(error.message);

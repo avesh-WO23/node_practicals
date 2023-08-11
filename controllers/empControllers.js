@@ -3,6 +3,7 @@ const fsPromises = require("fs/promises");
 const fs = require("fs");
 const path = require("path");
 const { v4: uuid } = require("uuid");
+const { Person } = require("../models/personSchema");
 
 const emp = path.join(__dirname, "../models/emp.json");
 
@@ -70,6 +71,8 @@ const createNewEmployee = (req, res) => {
       ...req.body,
       id: uuid(),
     };
+    const person = new Person(req.body);
+    person.save().then(() => console.log("Created person!"));
     if (!fs.existsSync(emp)) {
       fs.writeFile(emp, JSON.stringify([newEmployee]), "utf-8", (err, data) => {
         return err
