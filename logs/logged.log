@@ -827,3 +827,103 @@ info: 08-12-2023 12:58:46: 	c2a7ef32-bbaa-4478-b53f-38ff731aec5c GET undefined /
 info: 08-12-2023 12:59:39: 	6680e0e9-3cb6-4a47-b57c-c3cf31df9759 GET undefined /employees/
 info: 08-12-2023 12:59:40: 	0b4ee459-9e81-44d5-9a36-c7b4cc9b10e6 GET undefined /employees/
 info: 08-12-2023 12:59:41: 	b295bfac-15de-4902-996c-e1239a8565cf GET undefined /employees/
+info: 08-12-2023 13:28:15: 	d0f08f4a-f105-4d3f-89f0-c6217aceb9bd GET undefined /employees/
+info: 08-12-2023 13:29:14: 	3637ae11-bae3-42c7-a17c-3fb634042499 GET undefined /employees/
+error: 08-12-2023 13:29:14: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 13:29:24: 	b9d3ae67-bd8a-4985-b13c-6ee8a8c97575 GET undefined /employees/
+error: 08-12-2023 13:29:24: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 13:29:41: 	dbad4476-c0d3-4e31-9c96-b3cbcd22c06e GET undefined /employees/
+error: 08-12-2023 13:29:41: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 13:30:14: 	27da3a86-5891-4151-9cfc-9fbaee27668d GET undefined /employees/
+error: 08-12-2023 13:30:14: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 13:30:31: 	6dedfb31-218c-4970-8e69-c15812ff554d GET undefined /employees/
+error: 08-12-2023 13:30:31: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 13:32:26: 	d9ce5b60-0db7-4063-a91b-4635b055432d GET undefined /employees/
+error: 08-12-2023 13:32:26: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 13:32:27: 	e42097db-df7d-46a4-80d8-7f2d3738d23b GET undefined /employees/
+error: 08-12-2023 13:32:27: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 13:32:39: 	d5515edd-5270-431a-bb46-57ff299b7b03 GET undefined /employees/
+error: 08-12-2023 13:32:39: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 13:33:24: 	c7532441-4c78-41cb-bd8f-12d5589a5ce4 GET undefined /employees/
+error: 08-12-2023 13:33:24: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 14:25:10: 	41170cf0-f765-4310-9a92-e0c807763ef8 GET undefined /employees/
+error: 08-12-2023 14:25:10: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 14:26:20: 	4633b7d1-bcdf-4004-b573-9159fba18307 GET undefined /employees/
+error: 08-12-2023 14:26:20: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 14:27:01: 	c3d8429a-cace-4e6f-8b48-2bc443a58541 GET undefined /employees/
+error: 08-12-2023 14:27:01: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 14:28:20: 	71da3a28-b11f-4db1-8aca-c2fb323fcc88 GET undefined /employees/
+error: 08-12-2023 14:28:20: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 14:29:22: 	64c97688-7bb4-41e7-888f-6b4af044530c GET undefined /employees/
+error: 08-12-2023 14:29:22: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 14:31:38: 	8ae85b98-197d-4807-9d98-43a390ffbc62 GET undefined /employees/
+error: 08-12-2023 14:31:38: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 14:33:47: 	5514ebc3-aee6-4dde-8aa9-6d42a590400f GET undefined /employees/
+error: 08-12-2023 14:33:47: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 14:34:42: 	dd348037-337a-45a6-8491-e775a73f9da7 GET undefined /products
+error: 08-12-2023 14:34:42: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 14:35:00: 	823aac59-c875-47ac-a76d-659eae717a15 GET undefined /products
+error: 08-12-2023 14:35:00: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 14:36:42: 	f7470183-b0ed-4e89-ba0f-b5d8871202c9 GET undefined /products
+error: 08-12-2023 14:36:42: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 14:37:02: 	aa453c7c-9a90-475b-b3b5-d0773d69631f GET undefined /products
+error: 08-12-2023 14:37:02: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 14:37:20: 	68f09058-42e4-4288-8282-edb5d4f1768e GET undefined /products
+error: 08-12-2023 14:37:20: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 14:38:39: 	44aca47c-663a-4b88-b653-2c81f4b545c0 GET undefined /products
+error: 08-12-2023 14:38:39: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 14:39:34: 	861a1aeb-d66d-4c69-a0d9-a66682395b2c GET undefined /products
+error: 08-12-2023 14:39:34: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 14:39:57: 	bd62c1cf-220c-4e47-bb8d-8b4af5869550 GET undefined /products
+error: 08-12-2023 14:39:57: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 14:40:19: 	76e54dd2-a917-44b8-b105-28db2a317039 GET undefined /products
+error: 08-12-2023 14:40:19: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 14:43:18: 	35262ecd-cc6d-4dd1-a385-7500d65dee7c GET undefined /products
+error: 08-12-2023 14:43:18: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 14:44:03: 	2946c092-359d-4347-b439-a6521b4cea5e GET undefined /products
+error: 08-12-2023 14:44:03: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 14:44:52: 	d1b142bc-947d-43ed-af9e-5e323623a6e2 GET undefined /products
+info: 08-12-2023 14:47:22: 	622300fe-0bbe-4f93-9247-31969f06e93d GET undefined /products
+info: 08-12-2023 14:47:37: 	798de891-a79f-4968-92fe-08005ac2b240 GET undefined /products
+info: 08-12-2023 14:49:34: 	6c7b9eee-ea8e-49c5-9a82-d63d763c4d1a POST undefined /auth/login
+info: 08-12-2023 14:49:51: 	c56cf74e-81d8-4d63-a517-0bff72b615c5 GET undefined /products
+info: 08-12-2023 14:49:55: 	72f89888-31b9-4d4c-be93-4285ea61c4db GET undefined /products
+info: 08-12-2023 15:01:13: 	b90d9a84-56d2-4d8f-a0bf-430eea973426 POST undefined /auth/login
+info: 08-12-2023 15:06:33: 	f21de689-6542-4fe7-9df0-fef5e9a3b4f7 GET undefined /auth/refreshToken
+info: 08-12-2023 15:07:09: 	df2e723d-f159-4772-b1a3-b2b458c3f7bc GET undefined /auth/refreshToken
+info: 08-12-2023 15:07:57: 	68a14195-8cc4-4c63-8724-ee61565bd2b2 POST undefined /auth/refreshToken
+info: 08-12-2023 15:09:09: 	dcf5feb3-31ed-423f-9094-0f4c8e6119bd POST undefined /auth/refreshToken
+info: 08-12-2023 15:12:48: 	5763757e-f78f-4b13-a8be-bc3b140d9799 POST undefined /auth/refreshToken
+info: 08-12-2023 15:47:59: 	2ea2e291-e5a9-4a8e-bb59-12217b5e0d37 POST undefined /auth/refreshToken
+error: 08-12-2023 15:47:59: 	Error Cannot set headers after they are sent to the client
+info: 08-12-2023 15:48:55: 	4994fa7f-aa83-46af-b5fb-0da74a88dc47 POST undefined /auth/login
+info: 08-12-2023 15:50:14: 	1edf75ea-2a81-4770-af14-ba3bd6ba9af8 POST undefined /auth/refreshToken
+info: 08-12-2023 15:50:25: 	fd5277f6-3647-4eab-957e-027b29c459fb POST undefined /auth/login
+info: 08-12-2023 15:57:33: 	be57754e-7680-4dee-9121-50fb627cd844 POST undefined /auth/login
+info: 08-12-2023 15:58:04: 	233ee631-18d2-4b90-8b7a-3a91dff2a267 GET undefined /employees/
+info: 08-12-2023 15:58:31: 	fd34af97-a48d-4bcd-bf5d-66af9819f73e POST undefined /auth/refreshToken
+info: 08-12-2023 15:58:41: 	727606b3-ab9e-43bd-ae50-9edd82876b32 GET undefined /employees/
+info: 08-12-2023 15:59:01: 	a25604fa-0786-4033-adcb-711d65120bb4 POST undefined /auth/login
+info: 08-12-2023 15:59:13: 	78fd750a-6932-4f67-bc6a-956612a481c6 GET undefined /employees/
+info: 08-12-2023 15:59:18: 	d917e1c9-d47d-4e72-8c51-1a58b986da87 GET undefined /employees/
+info: 08-12-2023 15:59:22: 	b90d4d1d-f227-4a18-a654-92632dd5f78d GET undefined /employees/
+info: 08-12-2023 15:59:26: 	3ce71705-4a05-462a-8c7c-657db84b7759 GET undefined /employees/
+info: 08-12-2023 15:59:32: 	289a9ac6-2b6c-4961-bfb4-65431937b42d GET undefined /employees/
+info: 08-12-2023 15:59:41: 	4282c4ec-4854-49b8-b673-ab0b396d66db POST undefined /auth/refreshToken
+info: 08-12-2023 15:59:50: 	16ec061a-3374-43aa-8fd5-828531000d4c GET undefined /employees/
+info: 08-12-2023 16:00:09: 	c316a391-eaf1-48b6-8333-94f274bc89d2 GET undefined /employees/
+info: 08-12-2023 16:00:11: 	2255e03d-de59-444d-81a9-9406a296df70 GET undefined /employees/
+info: 08-12-2023 16:00:19: 	ef76b087-6cc8-44cc-8310-50218ff4cb59 GET undefined /employees/
+info: 08-12-2023 16:00:28: 	21abbfa2-1098-4414-a803-301e49f685d3 POST undefined /auth/refreshToken
+info: 08-12-2023 16:00:43: 	31ca6a99-2ba2-4b79-bd31-b163c8b0f39b GET undefined /employees/
+info: 08-12-2023 16:00:55: 	bbb3c6f0-726f-474b-85ab-87e0f854489c GET undefined /employees/
+info: 08-12-2023 16:01:02: 	eb534132-f0bf-44bd-a5f9-4cad3b7c6227 GET undefined /employees/
+info: 08-12-2023 16:01:20: 	c807d0a8-3d2f-4480-9791-771ccfc43268 POST undefined /auth/login
+info: 08-12-2023 16:01:32: 	5aa1f737-417c-4101-988f-93e20f908052 GET undefined /employees/
+info: 08-12-2023 16:01:36: 	23856045-bfc6-4f8a-8066-9daf8b83e55c GET undefined /employees/
+info: 08-12-2023 16:01:45: 	2100bdbc-cfc3-4aab-8c2c-00cd75a8b67f GET undefined /employees/
+info: 08-12-2023 16:01:47: 	93f67d21-46dd-42b0-9513-d2a1e77847c0 GET undefined /employees/
+info: 08-12-2023 16:01:49: 	6bd21b2c-e079-4904-9a9c-82b7adcba217 GET undefined /employees/
+info: 08-12-2023 16:01:50: 	f647a07a-bc56-4211-87b0-260d880d8af9 GET undefined /employees/
+info: 08-12-2023 16:01:54: 	dcc16328-896a-4f10-9902-d95cfe2b3ec7 POST undefined /auth/login
+info: 08-12-2023 16:02:05: 	15cdbedc-73ba-40b5-aadf-f5a282a65a04 GET undefined /employees/

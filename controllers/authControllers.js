@@ -8,7 +8,6 @@ const handleSignUp = async (req, res) => {
   try {
     await authSchema.validateAsync(req.body);
     const isExist = await User.findOne({ email: req.body.email });
-    console.log("isExist", isExist);
     if (!isExist) {
       const newUser = await User.create({
         ...req.body,
@@ -33,7 +32,31 @@ const handleSignUp = async (req, res) => {
   }
 };
 
-const handleRefreshToken = () => {};
+const handleRefreshToken = (req, res) => {
+  const cookies = req.cookies;
+  console.log("cookies", cookies);
+  if (!cookies?.jwt) return res.sendStatus(401);
+  const refreshToken = cookies.jwt;
+  const secretKey = process.env.REFRESH_TOKEN_SECRET;
+  try {
+    //verify old jwt refresh token
+    jwt.verify(refreshToken, secretKey, (err, decode) => {
+      if (err) return res.sendStatus(403);
+      //Generate new access and refresh token
+      const accessToken = jwt.sign(
+        { email: decode.email },
+        process.env.ACCESS_TOKEN_SECRET,
+        { expiresIn: "30s" }
+      );
+      const refreshToken = jwt.sign({ email: decode.email }, secretKey, {
+        expiresIn: "1d",
+      });
+      return res.status(201).json({ accessToken, refreshToken });
+    });
+  } catch (error) {
+    return res.send(error.message);
+  }
+};
 
 //Login
 const handleLogIn = async (req, res) => {
@@ -56,6 +79,10 @@ const handleLogIn = async (req, res) => {
           process.env.REFRESH_TOKEN_SECRET,
           { expiresIn: "1d" }
         );
+        res.cookie("jwt", refreshToken, {
+          httpOnly: true,
+          maxAge: 24 * 60 * 60 * 1000,
+        });
         return res.json({ message: "Logged In", accessToken, refreshToken });
       }
       return res.status(404).send("Password don't match!");
@@ -65,4 +92,11 @@ const handleLogIn = async (req, res) => {
   }
 };
 
-module.exports = { handleLogIn, handleSignUp, handleRefreshToken };
+const handleLogOut = (req, res) => {};
+
+module.exports = {
+  handleLogIn,
+  handleSignUp,
+  handleRefreshToken,
+  handleLogOut,
+};
