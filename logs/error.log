@@ -31,3 +31,16 @@ error: 08-09-2023 13:08:40: 	ReferenceError filteredData is not defined
 error: 08-09-2023 13:08:48: 	ReferenceError filteredData is not defined
 error: 08-09-2023 13:11:22: 	ReferenceError filteredData is not defined
 error: 08-09-2023 13:46:12: 	TypeError d[key].toLowerCase is not a function
+error: 08-12-2023 12:25:11: 	TypeError Cannot read properties of undefined (reading 'split')
+error: 08-12-2023 12:29:41: 	TypeError Cannot read properties of undefined (reading 'split')
+error: 08-12-2023 12:30:31: 	TypeError Cannot read properties of undefined (reading 'split')
+error: 08-12-2023 12:33:10: 	TypeError Cannot read properties of undefined (reading 'split')
+error: 08-12-2023 12:34:17: 	TypeError Cannot read properties of undefined (reading 'split')
+error: 08-12-2023 12:36:17: 	TokenExpiredError jwt expired
+error: 08-12-2023 12:38:53: 	TokenExpiredError jwt expired
+error: 08-12-2023 12:39:04: 	TokenExpiredError jwt expired
+error: 08-12-2023 12:39:25: 	TokenExpiredError jwt expired
+error: 08-12-2023 12:39:26: 	TokenExpiredError jwt expired
+error: 08-12-2023 12:39:47: 	TokenExpiredError jwt expired
+error: 08-12-2023 12:39:48: 	TokenExpiredError jwt expired
+error: 08-12-2023 12:41:52: 	TokenExpiredError jwt expired

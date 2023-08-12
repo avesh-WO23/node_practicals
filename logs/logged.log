@@ -743,3 +743,87 @@ info: 08-11-2023 18:53:35: 	1e5fb624-b059-4f09-aa5e-aa87e7e84dcb POST undefined 
 info: 08-11-2023 18:57:33: 	e17c4234-64aa-4473-974e-98ace653457e POST undefined /auth/register
 info: 08-11-2023 18:58:30: 	e53264ff-38dd-46b9-a737-ed7da78d4489 POST undefined /auth/register
 info: 08-11-2023 18:58:48: 	649c7622-263a-493b-9f64-74d359575587 POST undefined /auth/register
+info: 08-12-2023 10:05:54: 	62d29b7a-0e3f-4d70-b32f-d9112f493826 GET undefined /employees
+info: 08-12-2023 10:16:51: 	f3aa8ce4-79c8-4a93-9900-2fa4399cc69d GET undefined /register
+info: 08-12-2023 10:17:22: 	88357b56-4a9e-45f0-9e44-7240fc34ac69 POST undefined /auth/register
+info: 08-12-2023 10:18:04: 	de30ff03-9bbe-469d-9ae9-22229d4745e2 POST undefined /auth/register
+info: 08-12-2023 10:18:24: 	738b4d2e-af4a-48b1-9421-f09dbd073141 POST undefined /auth/register
+info: 08-12-2023 10:20:26: 	09b73676-af30-4094-b952-2237dc26745c POST undefined /auth/register
+info: 08-12-2023 10:29:07: 	83f64f10-cd44-4321-a9ac-61f6670619d2 POST undefined /auth/register
+info: 08-12-2023 10:30:10: 	6d2a9e18-b2da-4da6-af3a-20fdb8f0678d POST undefined /auth/register
+info: 08-12-2023 10:53:03: 	3ba6dc2c-574b-4361-ae1f-f671b38ba359 POST undefined /auth/register
+info: 08-12-2023 10:53:36: 	5eb88c87-1036-4e17-a1a1-64eeff07568e POST undefined /auth/register
+info: 08-12-2023 10:54:31: 	6b13b9c7-39c2-4272-92a5-b260da13d853 POST undefined /auth/register
+info: 08-12-2023 10:55:12: 	0ace5ce5-663e-4718-9af5-a0452382576d POST undefined /auth/register
+info: 08-12-2023 10:55:26: 	bf3063b0-fa1e-466a-a0c2-9ba103470812 POST undefined /auth/register
+info: 08-12-2023 10:55:43: 	c3230e54-c7ec-48e7-a2f6-97059b06c953 POST undefined /auth/register
+info: 08-12-2023 10:56:12: 	eff7d9d0-a415-4de7-8a62-cb65c56fa824 POST undefined /auth/register
+info: 08-12-2023 10:56:13: 	0371afbe-757e-4f72-8bab-db253e741531 POST undefined /auth/register
+info: 08-12-2023 10:56:15: 	e456a235-cb48-4ee8-a661-8de4ee890164 POST undefined /auth/register
+info: 08-12-2023 10:56:29: 	48f6d88c-f55f-495d-abe5-945955043ae7 POST undefined /auth/register
+info: 08-12-2023 10:56:34: 	12904edc-da2e-4c73-a074-09ac1e7eee2f POST undefined /auth/register
+info: 08-12-2023 10:57:48: 	e4393d1f-7ef9-4ad5-8635-1f89305d83a0 POST undefined /auth/register
+info: 08-12-2023 10:57:52: 	001850ac-0acb-4e69-93f5-9d15f2747fdb POST undefined /auth/register
+info: 08-12-2023 10:58:52: 	fcdf6fb2-837f-48af-a423-37717ce7a4ac POST undefined /auth/register
+info: 08-12-2023 11:10:22: 	031baf29-e22f-4abb-93cf-bc1c414aeb11 POST undefined /auth/login
+info: 08-12-2023 11:10:29: 	ed4cc0f6-e553-4706-ade2-e3c8e757d23c POST undefined /auth/login
+info: 08-12-2023 11:10:31: 	a105cb41-0d9f-4b4c-b088-1b8517a8d21a POST undefined /auth/login
+info: 08-12-2023 11:13:10: 	37364a4e-2435-4214-ac67-170ad047945d POST undefined /auth/login
+info: 08-12-2023 11:14:12: 	84ea1f54-8626-4021-868f-3ce6cc9ad459 POST undefined /auth/login
+info: 08-12-2023 11:14:39: 	4e0b2a95-62ad-4473-904f-dbfcfcf794b6 POST undefined /auth/login
+info: 08-12-2023 11:18:15: 	f3059ab6-556e-43fe-a4c3-78704c5f61c7 POST undefined /auth/login
+info: 08-12-2023 11:19:20: 	f02afde2-93d6-4cbd-8ac5-9d90730e390b POST undefined /auth/login
+info: 08-12-2023 11:20:28: 	710b3404-cd4e-4d31-8e90-c6ac209cc5e2 POST undefined /auth/login
+info: 08-12-2023 11:20:30: 	2e4c9b1c-55af-4f14-9138-f9c6cd440ca5 POST undefined /auth/login
+info: 08-12-2023 12:25:11: 	8cc8de62-1da7-4998-b6ec-0e5493278fcb GET undefined /employees
+error: 08-12-2023 12:25:11: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 12:29:41: 	46a6e72e-8e55-4b77-aa3d-48d757233ec6 GET undefined /employees
+error: 08-12-2023 12:29:41: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 12:30:31: 	f708a95c-ea87-4f08-a58a-7fb017e14a56 GET undefined /employees
+error: 08-12-2023 12:30:31: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 12:33:10: 	baf73467-f7eb-4db3-9441-acda97ec0889 GET undefined /employees
+error: 08-12-2023 12:33:10: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 12:34:17: 	93cfd6d8-6e09-486d-920c-24fc8089a75c GET undefined /employees
+error: 08-12-2023 12:34:17: 	TypeError Cannot read properties of undefined (reading 'split')
+info: 08-12-2023 12:35:25: 	bdcfbc83-6883-4308-9392-7639f6a65fa1 POST undefined /auth/login
+info: 08-12-2023 12:35:31: 	d9c3ce02-6ed1-48d0-8955-399a7ec8d253 POST undefined /auth/login
+info: 08-12-2023 12:36:17: 	1782b7f1-9387-49f7-b1f4-375aab6f1549 GET undefined /employees
+error: 08-12-2023 12:36:17: 	TokenExpiredError jwt expired
+info: 08-12-2023 12:36:52: 	22f5a595-f8ec-40b0-bae6-1604c2b55f6d POST undefined /auth/login
+info: 08-12-2023 12:37:08: 	3409b2b7-0326-41fe-b639-bdbdce736a38 GET undefined /employees
+info: 08-12-2023 12:38:53: 	6cec0e26-4d01-469b-bd55-db37cdfe8955 GET undefined /employees
+error: 08-12-2023 12:38:53: 	TokenExpiredError jwt expired
+info: 08-12-2023 12:39:04: 	f5221e0a-d6f3-475d-b131-f07e3386c775 GET undefined /employees
+error: 08-12-2023 12:39:04: 	TokenExpiredError jwt expired
+info: 08-12-2023 12:39:25: 	2e261dea-67a2-4fe4-867a-0b0916c92fcb GET undefined /employees
+error: 08-12-2023 12:39:25: 	TokenExpiredError jwt expired
+info: 08-12-2023 12:39:26: 	2e51b60f-c9cc-4d5a-ad5e-538d63894826 GET undefined /employees
+error: 08-12-2023 12:39:26: 	TokenExpiredError jwt expired
+info: 08-12-2023 12:39:47: 	d1a53584-ec2e-41c5-877b-a1647d9a931d GET undefined /employees
+error: 08-12-2023 12:39:47: 	TokenExpiredError jwt expired
+info: 08-12-2023 12:39:48: 	37ae7b61-0df8-4c04-ba1d-8ce869cd1279 GET undefined /employees
+error: 08-12-2023 12:39:48: 	TokenExpiredError jwt expired
+info: 08-12-2023 12:41:18: 	e566e2fe-2fcb-4820-b8ee-33b8b37f35fe POST undefined /auth/login
+info: 08-12-2023 12:41:28: 	a53924be-b7fa-44a5-8445-0b904dfd0bf0 GET undefined /employees
+info: 08-12-2023 12:41:44: 	51f1aabe-d1e8-468f-a5a0-9f480fd026d9 GET undefined /employees
+info: 08-12-2023 12:41:52: 	e0527ea3-8a78-4c94-a816-903108619880 GET undefined /employees
+error: 08-12-2023 12:41:52: 	TokenExpiredError jwt expired
+info: 08-12-2023 12:49:47: 	ebb4bbee-4f5e-4f3e-af58-aae5143099da POST undefined /auth/login
+info: 08-12-2023 12:50:02: 	7ce3e099-65ce-48ff-b0e3-50c511bfd46d GET undefined /employees
+info: 08-12-2023 12:50:18: 	79b02ed9-9209-49ad-b535-9e1fd1d290df GET undefined /employees
+info: 08-12-2023 12:54:34: 	0a677e9f-ec3b-440d-968d-56bb6e480797 GET undefined /employees
+info: 08-12-2023 12:54:37: 	e1c64754-8c1c-4244-8d77-112badd5cf35 GET undefined /employees
+info: 08-12-2023 12:54:54: 	17cb7f00-a444-407f-87a7-374a001b4278 GET undefined /employees?firstName=avesh
+info: 08-12-2023 12:54:56: 	870411d9-73c1-48d3-928c-bd1266ae13d1 GET undefined /employees?firstName=avesh
+info: 08-12-2023 12:55:12: 	8d5cd3fc-b8f4-4c07-a081-0414352e6313 GET undefined /employees/c0d79e36-7c5e-43d3-b901-f46ccbe9308a
+info: 08-12-2023 12:55:41: 	e51303fc-67dc-485f-b5c0-cb1989d01888 GET undefined /employees/35f31690-e887-48d1-beab-220e98a8263d
+info: 08-12-2023 12:56:56: 	46a7081c-aeca-4a94-bdf5-65b75f2d7418 GET undefined /employees/35f31690-e887-48d1-beab-220e98a8263d
+info: 08-12-2023 12:56:57: 	0c4603bb-6991-41ad-9553-e4debea8ac86 GET undefined /employees/35f31690-e887-48d1-beab-220e98a8263d
+info: 08-12-2023 12:56:58: 	276311ea-2242-42a7-a75c-1157f354c40f GET undefined /employees/35f31690-e887-48d1-beab-220e98a8263d
+info: 08-12-2023 12:56:59: 	bfb285a2-b0cc-4274-b57c-bb20efa93cbd GET undefined /employees/35f31690-e887-48d1-beab-220e98a8263d
+info: 08-12-2023 12:57:00: 	79ccf994-16a9-4ef9-af5f-1a472e669f29 GET undefined /employees/35f31690-e887-48d1-beab-220e98a8263d
+info: 08-12-2023 12:57:50: 	86516222-f750-466e-91f2-1a1e1d9ac03b GET undefined /employees/
+info: 08-12-2023 12:58:46: 	c2a7ef32-bbaa-4478-b53f-38ff731aec5c GET undefined /employees/
+info: 08-12-2023 12:59:39: 	6680e0e9-3cb6-4a47-b57c-c3cf31df9759 GET undefined /employees/
+info: 08-12-2023 12:59:40: 	0b4ee459-9e81-44d5-9a36-c7b4cc9b10e6 GET undefined /employees/
+info: 08-12-2023 12:59:41: 	b295bfac-15de-4902-996c-e1239a8565cf GET undefined /employees/
