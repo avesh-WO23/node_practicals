@@ -16,6 +16,12 @@ const { authRoutes } = require("./routes/api/auth");
 const authentication = require("./middlewares/authentication");
 const cookieParser = require("cookie-parser");
 
+//redis connection
+// const client = require("./config/redisConfig");
+
+// client.connect();
+// client.set("foo", "bar");
+
 class MyEmitter extends EventEmitter {}
 
 const myEmitter = new MyEmitter();
@@ -84,14 +90,13 @@ app.use("/products", authentication, productRoutes);
 //it will going to able to find the file so it will send 200 response but if you want send manually status or chang status then use res.status()
 
 //Error handling
-// app.use((err, req, res, next) => {
-//   console.log("err", err);
-//   res.status(err.status || 500);
-//   res.send({
-//     error: err.status || 500,
-//     message: err.message,
-//   });
-// });
+app.use((err, req, res, next) => {
+  res.status(err.status || 500);
+  res.send({
+    error: err.status || 500,
+    message: err.message,
+  });
+});
 
 //app.all Is actually use for all type of requests it could be any type of request
 //404
