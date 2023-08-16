@@ -56,7 +56,6 @@ const handleLogIn = async (req, res, next) => {
         };
         const accessToken = await signAccessToken(user);
         const refreshToken = await signRefreshToken(user);
-        console.log({ accessToken, refreshToken });
         //Now refresh token stored in redis
         await client.set(
           existingUser.id,
@@ -131,7 +130,7 @@ const handleLogOut = async (req, res) => {
       if (err) return res.sendStatus(403); //Forbidden
       // //Generate new access and refresh token
       const existingUser = await client.get(decode.aud);
-      if (!existingUser) return res.sendStatus(401);
+      if (!existingUser) return res.sendStatus(401); //Unauthorized User
       await client.del(decode.aud, (err, val) => {
         if (err) return res.send(err.message);
       });

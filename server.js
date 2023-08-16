@@ -15,6 +15,12 @@ const { productRoutes } = require("./routes/api/products");
 const { authRoutes } = require("./routes/api/auth");
 const authentication = require("./middlewares/authentication");
 const cookieParser = require("cookie-parser");
+const sendMail = require("./nodemailer");
+
+// Node mailer function for sending the mail
+// sendMail()
+//   .then((result) => console.log("email sent!", result))
+//   .catch((error) => console.log("error", error));
 
 //redis connection
 // const client = require("./config/redisConfig");
