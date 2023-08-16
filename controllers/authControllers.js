@@ -4,6 +4,7 @@ const { authSchema } = require("../models/joiSchema");
 const bcrypt = require("bcrypt");
 const client = require("../config/redisConfig");
 const createError = require("http-errors");
+const { signAccessToken, signRefreshToken } = require("../utils/auth");
 
 //Redis connection
 client.connect();
@@ -49,16 +50,13 @@ const handleLogIn = async (req, res, next) => {
         existingUser.password
       );
       if (isPasswordCorrect) {
-        const accessToken = jwt.sign(
-          { email: req.body.email },
-          process.env.ACCESS_TOKEN_SECRET,
-          { expiresIn: "30s" }
-        );
-        const refreshToken = jwt.sign(
-          { email: req.body.email },
-          process.env.REFRESH_TOKEN_SECRET,
-          { expiresIn: "1y" }
-        );
+        const user = {
+          email: existingUser.email,
+          id: existingUser.id,
+        };
+        const accessToken = await signAccessToken(user);
+        const refreshToken = await signRefreshToken(user);
+        console.log({ accessToken, refreshToken });
         //Now refresh token stored in redis
         await client.set(
           existingUser.id,
@@ -68,7 +66,6 @@ const handleLogIn = async (req, res, next) => {
             if (err) return res.send(err.message);
           }
         );
-
         //Store refresh token in the cookie
         // res.cookie("jwt", refreshToken, {
         //   httpOnly: true,
@@ -97,22 +94,19 @@ const handleRefreshToken = async (req, res) => {
   try {
     //verify old jwt refresh token
     jwt.verify(refreshToken, secretKey, async (err, decode) => {
-      if (err) return res.sendStatus(403);
-
+      if (err) return res.sendStatus(403); //Forbidden
       //Generate new access and refresh token
-      const existUser = await User.findOne({ email: decode.email });
-      if (!existUser) return res.status(404).send("User Not found!");
-      const accessToken = jwt.sign(
-        { email: decode.email },
-        process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn: "30s" }
-      );
-      const refreshToken = jwt.sign({ email: decode.email }, secretKey, {
-        expiresIn: "1d",
-      });
+      const existingUser = await client.get(decode.aud);
+      if (!existingUser) return res.status(404).send("User Not found!");
+      const user = {
+        email: decode.email,
+        id: decode.aud,
+      };
+      const accessToken = await signAccessToken(user);
+      const refreshToken = await signRefreshToken(user);
 
       await client.set(
-        existUser.id,
+        decode.aud,
         refreshToken,
         { EX: 365 * 24 * 60 * 60 },
         (err, val) => {
@@ -134,15 +128,14 @@ const handleLogOut = async (req, res) => {
   try {
     //verify old jwt refresh token
     jwt.verify(refreshToken, secretKey, async (err, decode) => {
-      if (err) return res.sendStatus(403);
-
-      //Generate new access and refresh token
-      const existUser = await User.findOne({ email: decode.email });
-      if (!existUser) return res.status(404).send("User Not found!");
-      await client.del(existUser.id, (err, val) => {
+      if (err) return res.sendStatus(403); //Forbidden
+      // //Generate new access and refresh token
+      const existingUser = await client.get(decode.aud);
+      if (!existingUser) return res.sendStatus(401);
+      await client.del(decode.aud, (err, val) => {
         if (err) return res.send(err.message);
       });
-      return res.status(200).send("Logged Out!");
+      return res.status(200).send("Logged out!");
     });
   } catch (error) {
     return res.send(error.message);
