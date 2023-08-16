@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt");
 const client = require("../config/redisConfig");
 const createError = require("http-errors");
 
+//Redis connection
 client.connect();
 
 //Sign up
@@ -60,7 +61,7 @@ const handleLogIn = async (req, res, next) => {
         );
         //Now refresh token stored in redis
         await client.set(
-          "refreshToken",
+          existingUser.id,
           refreshToken,
           { EX: 365 * 24 * 60 * 60 },
           (err, replay) => {
@@ -90,14 +91,17 @@ const handleRefreshToken = async (req, res) => {
   // const refreshToken = cookies.jwt;
 
   //Get token from the redis db
-  const refreshToken = await client.get("refreshToken");
+  const refreshToken = req.body.refreshToken;
   if (!refreshToken) return res.sendStatus(401);
   const secretKey = process.env.REFRESH_TOKEN_SECRET;
   try {
     //verify old jwt refresh token
     jwt.verify(refreshToken, secretKey, async (err, decode) => {
       if (err) return res.sendStatus(403);
+
       //Generate new access and refresh token
+      const existUser = await User.findOne({ email: decode.email });
+      if (!existUser) return res.status(404).send("User Not found!");
       const accessToken = jwt.sign(
         { email: decode.email },
         process.env.ACCESS_TOKEN_SECRET,
@@ -108,10 +112,10 @@ const handleRefreshToken = async (req, res) => {
       });
 
       await client.set(
-        "refreshToken",
+        existUser.id,
         refreshToken,
         { EX: 365 * 24 * 60 * 60 },
-        (err, replay) => {
+        (err, val) => {
           if (err) return res.send(err.message);
         }
       );
@@ -122,12 +126,27 @@ const handleRefreshToken = async (req, res) => {
   }
 };
 
-const handleLogOut = (req, res) => {
-  const cookies = req.cookies;
-  console.log("cookie", req.cookies);
-  if (!cookies?.jwt) return res.sendStatus(204); //req success but no content to send to client!
-  res.clearCookie("jwt", { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 });
-  return res.status(200).send("Logout!");
+//handle Logout
+const handleLogOut = async (req, res) => {
+  const refreshToken = req.body.refreshToken;
+  if (!refreshToken) return res.sendStatus(401);
+  const secretKey = process.env.REFRESH_TOKEN_SECRET;
+  try {
+    //verify old jwt refresh token
+    jwt.verify(refreshToken, secretKey, async (err, decode) => {
+      if (err) return res.sendStatus(403);
+
+      //Generate new access and refresh token
+      const existUser = await User.findOne({ email: decode.email });
+      if (!existUser) return res.status(404).send("User Not found!");
+      await client.del(existUser.id, (err, val) => {
+        if (err) return res.send(err.message);
+      });
+      return res.status(200).send("Logged Out!");
+    });
+  } catch (error) {
+    return res.send(error.message);
+  }
 };
 
 module.exports = {
