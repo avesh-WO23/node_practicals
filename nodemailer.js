@@ -10,7 +10,7 @@ const oAuth2Client = new google.auth.OAuth2(
 oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
 
 // it will consist the email body what and whom we want send
-const sendMail = async () => {
+const sendMail = async (options) => {
   try {
     //for get the access token of the oAuth playground
     const accessToken = await oAuth2Client.getAccessToken();
@@ -28,16 +28,7 @@ const sendMail = async () => {
       },
     });
 
-    //Options for the email like what's in the email body
-    const mailOptions = {
-      from: "avesh.webosmotic@gmail.com",
-      to: "aveshhasanfatta1155@gmail.com",
-      subject: "Hello from the nodemailer2",
-      text: "Hello we are using gmail",
-      html: "<h1>Hello we are using gmail</h1>",
-    };
-
-    const result = await transport.sendMail(mailOptions);
+    const result = await transport.sendMail(options);
     return result;
   } catch (error) {
     console.log(error.message);

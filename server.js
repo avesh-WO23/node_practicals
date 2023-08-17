@@ -16,26 +16,40 @@ const { authRoutes } = require("./routes/api/auth");
 const authentication = require("./middlewares/authentication");
 const cookieParser = require("cookie-parser");
 const sendMail = require("./nodemailer");
+const fs = require("fs");
+const handlebars = require("handlebars");
 
 // Node mailer function for sending the mail
-// sendMail()
-//   .then((result) => console.log("email sent!", result))
-//   .catch((error) => console.log("error", error));
 
-//redis connection
-// const client = require("./config/redisConfig");
+//first read the file
+const dynamicTemplateFile = fs.readFileSync(
+  path.join(__dirname, "templates", "index.htm"),
+  "utf-8"
+);
 
-// client.connect();
-// client.set("foo", "bar");
+//create template with handlebars
+const template = handlebars.compile(dynamicTemplateFile);
+
+//pass dynamic parameters that template requires
+const htmlOptions = template({ email: "aveshhasnfatta1155@gmail.com" });
+
+//message contains body
+const options = {
+  from: "avesh.webosmotic@gmail.com",
+  to: "aveshhasanfatta1155@gmail.com",
+  subject: "Congratulations You've made it!",
+  html: htmlOptions,
+};
+
+app.get("/send", (req, res) => {
+  sendMail(options)
+    .then((result) => res.send(result))
+    .catch((error) => res.send(error));
+});
 
 class MyEmitter extends EventEmitter {}
 
 const myEmitter = new MyEmitter();
-
-// app.use(bodyParser.json({ limit: "30mb", extended: true }));
-// app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
-
-// app.use(express.json());
 
 //Custom Middleware
 app.use(logged);
@@ -93,6 +107,7 @@ app.use("/auth", authRoutes);
 //added JWT Verification middleware
 app.use("/employees", authentication, employeesRoutes);
 app.use("/products", authentication, productRoutes);
+
 //it will going to able to find the file so it will send 200 response but if you want send manually status or chang status then use res.status()
 
 //Error handling

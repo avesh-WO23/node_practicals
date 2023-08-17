@@ -13,7 +13,6 @@ const getProducts = async (req, res) => {
     //     _id: 0,
     //   }
     // );
-    console.log("ghghghggh");
 
     if (!Object.keys(req.params).length && !Object.keys(req.query).length) {
       const allProducts = await Product.find();
