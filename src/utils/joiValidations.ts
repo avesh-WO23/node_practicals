@@ -47,4 +47,16 @@ const empValidation = joi.object({
   isVerified: joi.bool().required(),
 });
 
-export { companyValidation, empValidation, statusValidation };
+const designationValidation = joi.object({
+  designation: joi
+    .string()
+    .valid("MANAGER", "TEAM_LEADER", "DEVELOPER")
+    .required(),
+});
+
+export {
+  companyValidation,
+  empValidation,
+  statusValidation,
+  designationValidation,
+};

@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const empSchema = new mongoose.Schema({
   firstName: { type: String, required: true },
@@ -29,9 +29,10 @@ const empSchema = new mongoose.Schema({
   isVerified: {
     type: Boolean,
     required: true,
+    default: false,
   },
 });
 
 const Employee = mongoose.model("Employee", empSchema);
 
-module.exports = Employee;
+export default Employee;

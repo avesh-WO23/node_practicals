@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 //Mongo URI
-const URI = `mongodb+srv://avesh_WO:${process.env.PASS}@products.qefchk3.mongodb.net/?retryWrites=true&w=majority`;
+const URI = `mongodb://127.0.0.1:27017`;
 
 const connectDb = () => {
   mongoose

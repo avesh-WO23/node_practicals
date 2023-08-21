@@ -19,7 +19,7 @@ app.use(express.json());
 
 //Routes
 app.use("/api", companyRoutes);
-app.use("/api", employeesRoutes);
+app.use("/api/employees", employeesRoutes);
 
 app.all("*", (req: Request, res: Response, next: NextFunction) => {
   const err = createError(404, `Not Found!`);

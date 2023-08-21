@@ -1,6 +1,8 @@
 import { NextFunction, Request, Response } from "express";
 import Company from "../models/companyModel.js";
 import createError from "http-errors";
+import createHttpError from "http-errors";
+import mongoose from "mongoose";
 
 //Add
 export const createCompany = async (
@@ -34,12 +36,17 @@ export const updateCompany = async (
   next: NextFunction
 ) => {
   const { id } = req.params;
-  if (!id) return next(createError(404, "Not Found!"));
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return next(createError(404, "No company with this ID!"));
+  }
   try {
-    const updated = await Company.findByIdAndUpdate(id, req.body, {
+    const updated = await Company.findOneAndUpdate({ _id: id }, req.body, {
       new: true,
     });
-    res.status(200).send(updated);
+    if (!updated) {
+      return next(createError(404, "Not found!"));
+    }
+    return res.status(200).send(updated);
   } catch (error) {
     next(error);
   }
@@ -52,10 +59,15 @@ export const deleteCompany = async (
   next: NextFunction
 ) => {
   const { id } = req.params;
-  if (!id) return next(createError(404, "Not Found!"));
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return next(createError(404, "Invalid ID"));
+  }
   try {
-    await Company.findByIdAndRemove(id);
-    res.status(200).send("Deleted!");
+    const del = await Company.findByIdAndRemove(id);
+    if (!del) {
+      return next(createError(404, "Not found!"));
+    }
+    return res.status(200).send("Deleted!");
   } catch (error) {
     next(error);
   }
@@ -82,7 +94,7 @@ export const getCompanies = async (
         }
       }
       //For find the related result from the search query for array of multiple query properties
-      const andQueries = Object.keys(queryObj).map((key) => {
+      const multipleQueries = Object.keys(queryObj).map((key) => {
         const searchQuery = {} as any;
         if (key === "status") {
           searchQuery[key] = queryObj[key];
@@ -91,8 +103,10 @@ export const getCompanies = async (
         }
         return searchQuery;
       });
-      const companies = await Company.find({ $and: andQueries });
-      return res.send(companies);
+      if (multipleQueries.length) {
+        const companies = await Company.find({ $and: multipleQueries });
+        return res.send(companies);
+      }
     }
     const allCompanies = await Company.find({});
     return res.send(allCompanies);

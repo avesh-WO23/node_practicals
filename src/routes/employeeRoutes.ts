@@ -5,18 +5,19 @@ import {
   updateEmployee,
   deleteEmployee,
 } from "../controllers/empControllers.js";
+import { validateEmployee } from "../middlewares/joiValidationMiddlewares.js";
 
 const router = express.Router();
 
-router.post("/register", createEmployee);
+router.post("/register", [validateEmployee, createEmployee]);
 
-router.get("/employees", getEmployees);
+router.get("/", getEmployees);
 
 router
-  .route("/employees/:id")
-  .put(updateEmployee)
+  .route("/:id")
+  .put([validateEmployee, updateEmployee])
   .get(getEmployees)
   .delete(deleteEmployee)
-  .patch(updateEmployee);
+  .patch([validateEmployee, updateEmployee]);
 
 export { router as employeesRoutes };

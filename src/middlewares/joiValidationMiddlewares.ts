@@ -3,9 +3,11 @@ import {
   companyValidation,
   empValidation,
   statusValidation,
+  designationValidation,
 } from "../utils/joiValidations.js";
 import createHttpError from "http-errors";
 
+//Company Validation
 const validateCompany = (req: Request, res: Response, next: NextFunction) => {
   if (req.method === "PUT") {
     const result = companyValidation.validate(req.body);
@@ -22,10 +24,19 @@ const validateCompany = (req: Request, res: Response, next: NextFunction) => {
   next();
 };
 
+//Emp validation
 const validateEmployee = (req: Request, res: Response, next: NextFunction) => {
-  const result = empValidation.validate(req.body);
-  if (result.error) {
-    return res.send(result.error.message);
+  if (req.method === "PATCH") {
+    const result = designationValidation.validate(req.body);
+    if (result.error) {
+      return next(createHttpError(400, result.error.message));
+    }
+  }
+  if (req.method === "PUT") {
+    const result = empValidation.validate(req.body);
+    if (result.error) {
+      return next(createHttpError(400, result.error.message));
+    }
   }
   next();
 };
