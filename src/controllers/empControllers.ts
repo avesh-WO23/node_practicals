@@ -1,6 +1,7 @@
 import Employee from "../models/employeeModel.js";
 import { Request, Response, NextFunction } from "express";
 import createHttpError from "http-errors";
+import bcrypt from "bcrypt";
 
 //Create
 export const createEmployee = async (
@@ -12,9 +13,11 @@ export const createEmployee = async (
     email: { $regex: new RegExp(req.body.email, "i") },
   });
   if (!isEmployeeExist.length) {
-    const addEmployee = new Employee(req.body);
     try {
-      const result = await addEmployee.save();
+      const result = await Employee.create({
+        ...req.body,
+        password: await bcrypt.hash(req.body.password, 10),
+      });
       return res.status(201).send(result);
     } catch (error) {
       next(error);
@@ -88,7 +91,7 @@ export const getEmployees = async (
       const searchQueries = {} as any;
       //What if user apply empty value for the query like {firstName=""}
       for (const key in req.query) {
-        if (req.query[key]) {
+        if (req.query[key] && !Object.keys(req.query).includes("password")) {
           searchQueries[key] = req.query[key];
         }
       }
