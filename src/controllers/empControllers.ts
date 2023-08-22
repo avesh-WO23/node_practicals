@@ -91,7 +91,7 @@ export const getEmployees = async (
       const searchQueries = {} as any;
       //What if user apply empty value for the query like {firstName=""}
       for (const key in req.query) {
-        if (req.query[key] && !Object.keys(req.query).includes("password")) {
+        if (req.query[key]) {
           searchQueries[key] = req.query[key];
         }
       }

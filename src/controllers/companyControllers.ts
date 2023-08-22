@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express";
+import { NextFunction, Request, Response, query } from "express";
 import Company from "../models/companyModel.js";
 import createError from "http-errors";
 import createHttpError from "http-errors";
@@ -94,17 +94,34 @@ export const getCompanies = async (
         }
       }
       //For find the related result from the search query for array of multiple query properties
-      const multipleQueries = Object.keys(queryObj).map((key) => {
-        const searchQuery = {} as any;
-        if (key === "status") {
-          searchQuery[key] = queryObj[key];
-        } else {
-          searchQuery[key] = { $regex: new RegExp(queryObj[key], "i") };
-        }
-        return searchQuery;
-      });
-      if (multipleQueries.length) {
-        const companies = await Company.find({ $and: multipleQueries });
+      // Created proper query object
+      const multipleQueries = {
+        $and: Object.keys(queryObj).map((key) => {
+          const searchQuery = {} as any;
+          if (key === "status") {
+            return (searchQuery[key] = queryObj[key]);
+          } else if (key === "address") {
+            //search query for address
+            return {
+              $or: [
+                { "address.line1": { $regex: new RegExp(queryObj[key], "i") } },
+                { "address.line2": { $regex: new RegExp(queryObj[key], "i") } },
+                { "address.city": { $regex: new RegExp(queryObj[key], "i") } },
+                { "address.state": { $regex: new RegExp(queryObj[key], "i") } },
+                {
+                  "address.country": { $regex: new RegExp(queryObj[key], "i") },
+                },
+              ],
+            };
+          } else {
+            searchQuery[key] = { $regex: new RegExp(queryObj[key], "i") };
+          }
+          return searchQuery;
+        }),
+      };
+      //If there is any query present in query params
+      if (Object.keys(queryObj).length) {
+        const companies = await Company.find(multipleQueries);
         return res.send(companies);
       }
     }
