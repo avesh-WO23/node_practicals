@@ -9,7 +9,7 @@ import createHttpError from "http-errors";
 
 //Company Validation
 const validateCompany = (req: Request, res: Response, next: NextFunction) => {
-  if (req.method === "PUT") {
+  if (req.method === "PUT" || req.method === "POST") {
     const result = companyValidation.validate(req.body);
     if (result.error) {
       return next(createHttpError(400, result.error.message));
@@ -32,7 +32,7 @@ const validateEmployee = (req: Request, res: Response, next: NextFunction) => {
       return next(createHttpError(400, result.error.message));
     }
   }
-  if (req.method === "PUT") {
+  if (req.method === "PUT" || req.method === "POST") {
     const result = empValidation.validate(req.body);
     if (result.error) {
       return next(createHttpError(400, result.error.message));

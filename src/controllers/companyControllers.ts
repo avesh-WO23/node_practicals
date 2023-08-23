@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response, query } from "express";
 import Company from "../models/companyModel.js";
 import createError from "http-errors";
-import createHttpError from "http-errors";
 import mongoose from "mongoose";
 
 //Add

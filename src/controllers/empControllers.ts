@@ -2,6 +2,7 @@ import Employee from "../models/employeeModel.js";
 import { Request, Response, NextFunction } from "express";
 import createHttpError from "http-errors";
 import bcrypt from "bcrypt";
+import sendMail from "../utils/sendMail.js";
 
 //Create
 export const createEmployee = async (
@@ -18,6 +19,9 @@ export const createEmployee = async (
         ...req.body,
         password: await bcrypt.hash(req.body.password, 10),
       });
+      //Email verification
+      const emailed = await sendMail(req.body.email);
+      console.log("emailed", emailed);
       return res.status(201).send(result);
     } catch (error) {
       next(error);
