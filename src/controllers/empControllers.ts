@@ -1,8 +1,17 @@
-import Employee from "../models/employeeModel.js";
-import { Request, Response, NextFunction } from "express";
-import createHttpError from "http-errors";
 import bcrypt from "bcrypt";
+import { NextFunction, Request, Response } from "express";
+import createHttpError from "http-errors";
+import jwt from "jsonwebtoken";
+import Employee from "../models/employeeModel.js";
 import sendMail from "../utils/sendMail.js";
+
+interface Verification {
+  email: string;
+  link: string;
+}
+
+const VERIFY_TOKEN_SECRET =
+  process.env.VERIFY_TOKEN_SECRET || "abcdefghijklmnopqrstuvwxyz";
 
 //Create
 export const createEmployee = async (
@@ -19,9 +28,18 @@ export const createEmployee = async (
         ...req.body,
         password: await bcrypt.hash(req.body.password, 10),
       });
+      //jwt token for verify the user
+      const verifyToken = jwt.sign(
+        { email: req.body.email },
+        VERIFY_TOKEN_SECRET,
+        { expiresIn: "1h" }
+      );
+      const verification: Verification = {
+        email: req.body.email,
+        link: `http://localhost:${process.env.PORT}/api/employees/verification/${verifyToken}`,
+      };
       //Email verification
-      const emailed = await sendMail(req.body.email);
-      console.log("emailed", emailed);
+      const emailed = await sendMail(verification);
       return res.status(201).send(result);
     } catch (error) {
       next(error);
@@ -119,6 +137,39 @@ export const getEmployees = async (
     //for all empty search query params
     const allEmployees = await Employee.find({}).populate("companyId");
     return res.send(allEmployees);
+  } catch (error) {
+    next(error);
+  }
+};
+
+//verify the user
+export const verifyEmployee = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  //Check user email is exist in DB
+  const verifyJwt: any = jwt.verify(
+    req.params.verifyToken,
+    VERIFY_TOKEN_SECRET
+  );
+  try {
+    const existUser: any = await Employee.findOne({
+      email: verifyJwt["email"],
+    });
+    if (!existUser) {
+      next(createHttpError.NotFound("Employee is not found!"));
+    } else {
+      if (existUser.isVerified) {
+        next(createHttpError(400, "User is already verified!"));
+      }
+      const updatedEmployee = await Employee.findByIdAndUpdate(
+        existUser._id,
+        { isVerified: true },
+        { new: true }
+      );
+      return res.send("Employee verified successful!");
+    }
   } catch (error) {
     next(error);
   }

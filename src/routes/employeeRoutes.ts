@@ -4,6 +4,7 @@ import {
   getEmployees,
   updateEmployee,
   deleteEmployee,
+  verifyEmployee,
 } from "../controllers/empControllers.js";
 import { validateEmployee } from "../middlewares/joiValidationMiddlewares.js";
 
@@ -19,5 +20,7 @@ router
   .get(getEmployees)
   .delete(deleteEmployee)
   .patch([validateEmployee, updateEmployee]);
+
+router.get("/verification/:verifyToken", verifyEmployee);
 
 export { router as employeesRoutes };

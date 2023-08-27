@@ -34,7 +34,7 @@ const oAuth2Client = new google.auth.OAuth2(
 oAuth2Client.setCredentials({ refresh_token: process.env.EMP_REFRESH_TOKEN });
 
 //Main function will called whenever want send mail
-const sendMail = async (email: string) => {
+const sendMail = async ({ email, link }: { email: string; link: string }) => {
   try {
     const accessToken = await oAuth2Client.getAccessToken();
 
@@ -52,7 +52,7 @@ const sendMail = async (email: string) => {
     } as TransportOptions);
 
     // html template dynamic variable that require in html file
-    const htmlOptions = template({ email: email });
+    const htmlOptions = template({ email, link });
 
     //Message body
     const options = {
