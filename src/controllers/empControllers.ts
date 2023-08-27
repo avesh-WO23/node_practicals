@@ -3,6 +3,7 @@ import { NextFunction, Request, Response } from "express";
 import createHttpError from "http-errors";
 import jwt from "jsonwebtoken";
 import Employee from "../models/employeeModel.js";
+import { signAccessToken, signRefreshToken } from "../utils/auth.js";
 import sendMail from "../utils/sendMail.js";
 
 interface Verification {
@@ -12,6 +13,8 @@ interface Verification {
 
 const VERIFY_TOKEN_SECRET =
   process.env.VERIFY_TOKEN_SECRET || "abcdefghijklmnopqrstuvwxyz";
+
+const REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET || "some text";
 
 //Create
 export const createEmployee = async (
@@ -46,6 +49,58 @@ export const createEmployee = async (
     }
   } else {
     next(createHttpError(400, "This Email is already existed!"));
+  }
+};
+
+//Login
+export const employeeLogin = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const { email, password } = req.body;
+  try {
+    const existingUser: any = await Employee.findOne({
+      email: { $regex: new RegExp(email, "i") },
+    });
+    if (!existingUser) {
+      return next(createHttpError.NotFound("Employee not found!"));
+    }
+    const isPasswordCorrect = await bcrypt.compare(
+      password,
+      existingUser?.password
+    );
+    if (!isPasswordCorrect) {
+      return next(createHttpError.BadRequest("Password incorrect!"));
+    }
+    if (!existingUser.isVerified) {
+      //jwt token for verify the user
+      const verifyToken = jwt.sign({ email }, VERIFY_TOKEN_SECRET, {
+        expiresIn: "1h",
+      });
+      //Verification link for email
+      const verification: Verification = {
+        email,
+        link: `http://localhost:${process.env.PORT}/api/employees/verification/${verifyToken}`,
+      };
+      await sendMail(verification);
+      return res
+        .status(400)
+        .send(
+          "Employee is not verified , please go to your mail for verify your email!"
+        );
+    }
+    const accessToken = await signAccessToken({
+      email,
+      employeeId: existingUser.id,
+    });
+    const refreshToken = await signRefreshToken({
+      email,
+      employeeId: existingUser.id,
+    });
+    return res.status(200).send({ accessToken, refreshToken });
+  } catch (error) {
+    next(error);
   }
 };
 
@@ -173,4 +228,32 @@ export const verifyEmployee = async (
   } catch (error) {
     next(error);
   }
+};
+
+//Get refresh token
+export const refreshToken = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const oldRefreshToken = req.body.refreshToken;
+
+  jwt.verify(
+    oldRefreshToken,
+    REFRESH_TOKEN_SECRET,
+    async (err: any, decode: any) => {
+      if (err) {
+        return next(createHttpError.BadRequest(err.message));
+      }
+      const accessToken = await signAccessToken({
+        email: decode.email,
+        employeeId: decode.aud,
+      });
+      const refreshToken = await signRefreshToken({
+        email: decode.email,
+        employeeId: decode.aud,
+      });
+      return res.status(200).send({ accessToken, refreshToken });
+    }
+  );
 };
