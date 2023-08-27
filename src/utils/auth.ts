@@ -4,8 +4,8 @@ import dotenv from "dotenv";
 //config for enable env
 dotenv.config();
 
-const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET || "sometext";
-const REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET || "sometext";
+const ACCESS_TOKEN_SECRET: any = process.env.ACCESS_TOKEN_SECRET;
+const REFRESH_TOKEN_SECRET: any = process.env.REFRESH_TOKEN_SECRET;
 
 //Access token
 export const signAccessToken = ({

@@ -6,19 +6,20 @@ import {
   deleteCompany,
 } from "../controllers/companyControllers.js";
 import { validateCompany } from "../middlewares/joiValidationMiddlewares.js";
+import { authorization } from "../middlewares/auth.js";
 
 const router = express.Router();
 
 router
   .route("/companies")
-  .post([validateCompany, createCompany])
-  .get(getCompanies);
+  .post([authorization, validateCompany, createCompany])
+  .get([authorization, getCompanies]);
 
 router
   .route("/companies/:id")
-  .get(getCompanies)
-  .delete(deleteCompany)
-  .put([validateCompany, updateCompany])
-  .patch([validateCompany, updateCompany]);
+  .get([authorization, getCompanies])
+  .delete([authorization, deleteCompany])
+  .put([authorization, validateCompany, updateCompany])
+  .patch([authorization, validateCompany, updateCompany]);
 
 export { router as companyRoutes };

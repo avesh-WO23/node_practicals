@@ -15,6 +15,8 @@ const router = express.Router();
 
 router.post("/register", [validateEmployee, createEmployee]);
 
+router.post("/login", employeeLogin);
+
 router.get("/", [authorization, getEmployees]);
 
 router
@@ -23,8 +25,6 @@ router
   .get([authorization, getEmployees])
   .delete([authorization, deleteEmployee])
   .patch([authorization, validateEmployee, updateEmployee]);
-
-router.post("/login", employeeLogin);
 
 router.post("/refresh-token", refreshToken);
 
