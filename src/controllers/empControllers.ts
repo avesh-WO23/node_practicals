@@ -11,10 +11,9 @@ interface Verification {
   link: string;
 }
 
-const VERIFY_TOKEN_SECRET =
-  process.env.VERIFY_TOKEN_SECRET || "abcdefghijklmnopqrstuvwxyz";
+const VERIFY_TOKEN_SECRET: any = process.env.VERIFY_TOKEN_SECRET;
 
-const REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET || "some text";
+const REFRESH_TOKEN_SECRET: any = process.env.REFRESH_TOKEN_SECRET;
 
 //Create
 export const createEmployee = async (
